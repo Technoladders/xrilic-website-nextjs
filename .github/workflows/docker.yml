@@ -1,35 +1,15 @@
-name: Deploy Xrilic Frontend (App Only)
+name: Deploy Next.js Website
 
 on:
   push:
-    branches:
-      - cicd
-      - staging
-      - main
-  workflow_dispatch:
+    branches: ["main"]
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v3
-
-      - name: Setup environment variables
-        run: |
-          if [ "${{ github.ref_name }}" = "cicd" ]; then
-            echo "BUILD_COMMAND=npm run build:develop" >> $GITHUB_ENV
-            echo "DOCKER_TAG=dev-latest-xrilic" >> $GITHUB_ENV
-            echo "DEPLOY_PATH=/home/deploy/apps/xrilic-dev" >> $GITHUB_ENV
-          elif [ "${{ github.ref_name }}" = "staging" ]; then
-            echo "BUILD_COMMAND=npm run build:staging" >> $GITHUB_ENV
-            echo "DOCKER_TAG=staging-latest-xrilic" >> $GITHUB_ENV
-            echo "DEPLOY_PATH=/home/deploy/apps/xrilic-staging" >> $GITHUB_ENV
-          elif [ "${{ github.ref_name }}" = "main" ]; then
-            echo "BUILD_COMMAND=npm run build" >> $GITHUB_ENV
-            echo "DOCKER_TAG=prod-latest-xrilic" >> $GITHUB_ENV
-            echo "DEPLOY_PATH=/home/deploy/apps/xrilic-prod" >> $GITHUB_ENV
-          fi
 
       - name: Login to Docker Hub
         uses: docker/login-action@v2
@@ -37,29 +17,13 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18.17.0'
-          cache: 'npm'
-          cache-dependency-path: 'Hrumbles-Front-End_UI/package-lock.json'
-      
-      - name: Install App Dependencies
-        working-directory: ./Hrumbles-Front-End_UI
-        run: npm install --force --quiet
-      
-      - name: Build React Application
-        working-directory: ./Hrumbles-Front-End_UI
-        run: ${{ env.BUILD_COMMAND }}
-
-      - name: Build and push App Docker image
+      # Directly jump to Docker Build
+      - name: Build and Push Docker Image
         uses: docker/build-push-action@v4
         with:
-          context: ./Hrumbles-Front-End_UI
+          context: .
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/hrumble-new-frontend:${{ env.DOCKER_TAG }}
-
-      # --- REMOVED WEBSITE BUILD STEP HERE ---
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/xrilic-nextjs-website:latest
 
       - name: Deploy to Server
         uses: appleboy/ssh-action@master
@@ -68,17 +32,16 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd ${{ env.DEPLOY_PATH }}
-            echo "Pulling latest App image..."
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/hrumble-new-frontend:${{ env.DOCKER_TAG }}
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/xrilic-nextjs-website:latest
+            docker stop xrilic-nextjs-website || true
+            docker rm xrilic-nextjs-website || true
             
-            # --- REMOVED WEBSITE PULL COMMAND HERE ---
+            docker run -d \
+              --name xrilic-nextjs-website \
+              --restart unless-stopped \
+              --network zivelogin-network-prod \
+              -e SUPABASE_URL="${{ secrets.SUPABASE_URL }}" \
+              -e SUPABASE_ANON_KEY="${{ secrets.SUPABASE_ANON_KEY }}" \
+              ${{ secrets.DOCKERHUB_USERNAME }}/xrilic-nextjs-website:latest
 
-            echo "Restarting services..."
-            # Note: Since we are running via docker run in the other repo, 
-            # we just update the specific service here.
-            docker compose up -d --no-deps hrumble-new-frontend
-
-            echo "🧹 Cleaning up..."
             docker image prune -f
-            docker builder prune -f

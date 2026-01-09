@@ -24,6 +24,10 @@ jobs:
           context: .
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/xrilic-nextjs-website:latest
+          # ✅ ADDED: Pass secrets as build arguments
+          build-args: |
+            SUPABASE_URL=${{ secrets.SUPABASE_URL }}
+            SUPABASE_ANON_KEY=${{ secrets.SUPABASE_ANON_KEY }}
 
       - name: Deploy to Server
         uses: appleboy/ssh-action@master
@@ -36,12 +40,13 @@ jobs:
             docker stop xrilic-nextjs-website || true
             docker rm xrilic-nextjs-website || true
             
+            # Pass env vars again for Runtime (Container execution)
             docker run -d \
               --name xrilic-nextjs-website \
               --restart unless-stopped \
               --network zivelogin-network-prod \
-              -e SUPABASE_URL="${{ secrets.SUPABASE_URL }}" \
-              -e SUPABASE_ANON_KEY="${{ secrets.SUPABASE_ANON_KEY }}" \
+              -e NEXT_PUBLIC_SUPABASE_URL="${{ secrets.SUPABASE_URL }}" \
+              -e NEXT_PUBLIC_SUPABASE_ANON_KEY="${{ secrets.SUPABASE_ANON_KEY }}" \
               ${{ secrets.DOCKERHUB_USERNAME }}/xrilic-nextjs-website:latest
 
             docker image prune -f

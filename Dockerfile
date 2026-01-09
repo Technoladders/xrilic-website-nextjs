@@ -14,6 +14,15 @@ FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+
+# ✅ NEW: Accept Build Arguments
+ARG SUPABASE_URL
+ARG SUPABASE_ANON_KEY
+
+# ✅ NEW: Set them as ENV so Next.js can see them during build
+ENV NEXT_PUBLIC_SUPABASE_URL=$SUPABASE_URL
+ENV NEXT_PUBLIC_SUPABASE_ANON_KEY=$SUPABASE_ANON_KEY
+
 # Disable telemetry for privacy
 ENV NEXT_TELEMETRY_DISABLED=1
 RUN npm run build

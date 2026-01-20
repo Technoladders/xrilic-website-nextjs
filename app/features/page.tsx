@@ -33,7 +33,8 @@ import { ActionModal } from "@/components/action-modal"
 
 const features = {
   general: {
-    title: "General Suite",
+    title: "People Suite",
+    logo: "/logo/Xrilic logo.svg",
     description: "Centralize all HR operations and workforce management in a unified, intuitive platform that scales with your organization.",
     icon: LayoutDashboard,
     color: "primary",
@@ -72,6 +73,7 @@ const features = {
   },
   hiring: {
     title: "Hiring Suite",
+    logo: "/logo/Xrilic Recruit.svg",
     description: "Leverage AI-driven recruitment automation to source, screen, and onboard top talent faster while reducing bias and administrative burden across your entire hiring lifecycle.",
     icon: Users,
     color: "purple-500",
@@ -110,6 +112,7 @@ const features = {
   },
   verification: {
     title: "Verification Suite",
+    logo: "/logo/Xrilic Verify Black.svg",
     description: "Ensure compliance and build unbreakable trust through automated, secure background checks that scale with high-volume hiring while minimizing risks and turnaround times.",
     icon: Shield,
     color: "emerald-500",
@@ -148,6 +151,7 @@ const features = {
   },
   sales: {
     title: "Sales Suite (CRM)",
+    logo: "/logo/Xrilic CRM.svg",
     description: "Transform client interactions into revenue growth with an intuitive CRM that centralizes company data, pipelines, and analytics for unparalleled visibility and efficiency.",
     icon: Briefcase,
     color: "pink-500",
@@ -186,6 +190,7 @@ const features = {
   },
   finance: {
     title: "Finance Suite",
+    logo: "/logo/Xrilic Books.svg",
     description: "Streamline end-to-end financial operations with integrated tools for invoicing, expenses, payroll, and reporting that deliver real-time accuracy and strategic foresight.",
     icon: DollarSign,
     color: "blue-500",
@@ -231,7 +236,7 @@ const comparisonData = [
   { feature: "Real-Time Analytics", xrilic: true, competitor1: true, competitor2: true },
   { feature: "Payroll Processing", xrilic: true, competitor1: false, competitor2: false },
   { feature: "Deployment Tracking", xrilic: true, competitor1: false, competitor2: false },
-  { feature: "Mobile App", xrilic: true, competitor1: true, competitor2: false },
+
   { feature: "Sales Pipeline (CRM)", xrilic: true, competitor1: false, competitor2: true },
   { feature: "Automated Timesheets", xrilic: true, competitor1: false, competitor2: false },
   { feature: "Predictive Analytics", xrilic: true, competitor1: false, competitor2: false },
@@ -258,90 +263,92 @@ export default function FeaturesPage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden py-20 md:py-28">
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/20 via-background to-background" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent" />
+{/* Hero Section */}
+<section className="relative overflow-hidden py-20 md:py-28">
+  <div className="absolute inset-0 bg-gradient-to-b from-primary/20 via-background to-background" />
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent" />
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-6">
-              <Sparkles className="w-4 h-4 text-primary" />
-              <span className="text-sm text-muted-foreground">Comprehensive Feature Suite</span>
-            </motion.div>
+  <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={staggerContainer}
+      className="text-center max-w-8xl mx-auto"
+    >
+      <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-6">
+        <Sparkles className="w-4 h-4 text-primary" />
+        <span className="text-sm text-muted-foreground">Integrated Business Platform</span>
+      </motion.div>
 
-            <motion.h1 variants={fadeInUp} className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-balance">
-              Everything you need to{" "}
-              <span className="bg-gradient-to-r from-primary via-purple-500 to-pink-500 bg-clip-text text-transparent">
-                run your business
-              </span>
-            </motion.h1>
+      <motion.h1 variants={fadeInUp} className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-balance">
+        <span className="bg-gradient-to-r from-primary via-purple-500 to-pink-500 bg-clip-text text-transparent">
+          All your business operations unified
+        </span>{" "}
+        in a single, powerful platform.
+      </motion.h1>
 
-            <motion.p variants={fadeInUp} className="text-xl text-muted-foreground mb-8 text-balance">
-              Five powerful suites working together to automate HR, Recruitment, Sales, Verification, and Finance.
-            </motion.p>
+      <motion.p variants={fadeInUp} className="text-xl text-muted-foreground mb-8 text-balance">
+        Everything you need to run your business
+      </motion.p>
 
-            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button size="lg" onClick={() => setIsModalOpen(true)} className="bg-primary hover:bg-primary/90 text-base px-8">
-                Start Free Trial
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-              <Button size="lg" variant="outline" className="text-base px-8 bg-transparent">
-                View Pricing
-              </Button>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+      <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button size="lg" onClick={() => setIsModalOpen(true)} className="bg-primary hover:bg-primary/90 text-base px-8">
+          Start Free Trial
+          <ArrowRight className="ml-2 w-4 h-4" />
+        </Button>
+        <Button size="lg" variant="outline" className="text-base px-8 bg-transparent">
+          View Pricing
+        </Button>
+      </motion.div>
+    </motion.div>
+  </div>
+</section>
 
       {/* Suite Selector */}
-      <section className="py-12 bg-card/20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"
-          >
-            {(Object.keys(features) as Array<keyof typeof features>).map((key, index) => {
-              const suite = features[key]
-              const Icon = suite.icon
-              const isActive = selectedSuite === key
-              
-              const activeClass = isActive 
-                ? `bg-${suite.color}/10 border-${suite.color}/50 ring-1 ring-${suite.color}/30 shadow-lg shadow-${suite.color}/20`
-                : "bg-card border-border/50 hover:border-primary/30 hover:shadow-md"
+{/* Suite Selector */}
+<section className="py-12 bg-card/20">
+  <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={staggerContainer}
+      className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"
+    >
+      {(Object.keys(features) as Array<keyof typeof features>).map((key) => {
+        const suite = features[key]
+        const isActive = selectedSuite === key
+        
+        const activeClass = isActive 
+          ? `bg-background border-${suite.color} ring-2 ring-${suite.color}/20 shadow-xl`
+          : "bg-card/50 border-border/50 hover:border-primary/30 opacity-70 hover:opacity-100"
 
-              return (
-                <motion.button
-                  key={key}
-                  variants={fadeInUp}
-                  transition={{ duration: 0.4 }}
-                  whileHover={{ scale: 1.05, y: -4, transition: { duration: 0.2 } }}
-                  onClick={() => setSelectedSuite(key)}
-                  className={`p-4 rounded-xl border transition-all text-left ${activeClass}`}
-                >
-                  <motion.div
-                    animate={{ rotate: isActive ? [0, 5, -5, 0] : 0 }}
-                    transition={{ duration: isActive ? 1 : 0, repeat: isActive ? Infinity : 0, ease: "easeInOut" }}
-                  >
-                    <Icon
-                      className={`w-6 h-6 mb-3 transition-colors ${isActive ? `text-${suite.color}` : "text-muted-foreground"}`}
-                    />
-                  </motion.div>
-                  <h3 className={`text-sm font-semibold mb-1 transition-colors ${isActive ? "text-foreground" : "text-muted-foreground"}`}>{suite.title}</h3>
-                </motion.button>
-              )
-            })}
-          </motion.div>
-        </div>
-      </section>
+        return (
+          <motion.button
+            key={key}
+            variants={fadeInUp}
+            whileHover={{ scale: 1.05, y: -4 }}
+            onClick={() => setSelectedSuite(key)}
+            className={`p-6 rounded-xl border transition-all text-center flex flex-col items-center gap-4 ${activeClass}`}
+          >
+            <div className="relative h-14 w-full flex items-center justify-center">
+              <img
+                src={suite.logo}
+                alt={suite.title}
+                className={`h-full w-auto object-contain transition-all duration-300 dark:invert`}
+              />
+            </div>
+            {/* <h3 className={`text-xs font-bold uppercase tracking-widest transition-colors ${
+              isActive ? "text-foreground" : "text-muted-foreground"
+            }`}>
+              {suite.title}
+            </h3> */}
+          </motion.button>
+        )
+      })}
+    </motion.div>
+  </div>
+</section>
 
       {/* Detailed Features */}
       <section className="py-20 min-h-[600px]">
@@ -355,7 +362,13 @@ export default function FeaturesPage() {
               className="max-w-6xl mx-auto"
             >
               <motion.div variants={fadeInUp} initial="hidden" animate="visible" className="text-center mb-12">
-                <h2 className="text-3xl md:text-5xl font-bold mb-4">{features[selectedSuite].title}</h2>
+                  {/* Add the logo above the Title */}
+  <img 
+    src={features[selectedSuite].logo} 
+    className={`h-24 w-auto mx-auto mb-6 dark:invert`} 
+    alt=""
+  />
+                {/* <h2 className="text-3xl md:text-5xl font-bold mb-4">{features[selectedSuite].title}</h2> */}
                 <p className="text-lg text-muted-foreground">{features[selectedSuite].description}</p>
               </motion.div>
 

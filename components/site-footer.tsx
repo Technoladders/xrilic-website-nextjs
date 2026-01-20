@@ -1,8 +1,24 @@
 "use client"
 
+import { useState, useEffect } from "react" // Added useEffect
 import Link from "next/link"
+import { useTheme } from "next-themes" // Added useTheme
 
 export function SiteFooter() {
+   const { resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  // Avoid hydration mismatch by waiting for mount
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  // Determine logo source
+  const logoSrc = mounted && resolvedTheme === "dark" 
+    ? "/xrilic-logos/white/xrilic.W.ai.svg" 
+    : "/logo/xrilic_ai.svg"
+
+
   return (
     <footer className="border-t border-border/40 py-12 bg-background text-foreground">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -12,7 +28,12 @@ export function SiteFooter() {
             <ul className="space-y-2 text-sm text-muted-foreground">
                   <li>
                 <Link href="/suites/general" className="hover:text-foreground transition-colors">
-                  General Suite
+                  People Suite
+                </Link>
+              </li>
+                            <li>
+                <Link href="/suites/hiring" className="hover:text-foreground transition-colors">
+                  Hiring Suite
                 </Link>
               </li>
                <li>
@@ -30,11 +51,7 @@ export function SiteFooter() {
                   Finance Suite
                 </Link>
               </li>
-              <li>
-                <Link href="/suites/hiring" className="hover:text-foreground transition-colors">
-                  Hiring Suite
-                </Link>
-              </li>
+
              
             </ul>
           </div>
@@ -119,11 +136,12 @@ export function SiteFooter() {
         </div>
 
         <div className="pt-8 border-t border-border/40 flex flex-col md:flex-row items-center justify-between gap-4">
-          <Link
-            href="/"
-            className="text-2xl font-bold bg-gradient-to-r from-primary via-purple-500 to-pink-500 bg-clip-text text-transparent"
-          >
-            xrilic.ai
+                   <Link href="/" className="flex items-center">
+            <img 
+              src={logoSrc} 
+              alt="xrilic.ai" 
+              className="h-12 w-auto transition-opacity duration-300" 
+            />
           </Link>
           <p className="text-sm text-muted-foreground">© 2025 xrilic.ai. All rights reserved.</p>
         </div>

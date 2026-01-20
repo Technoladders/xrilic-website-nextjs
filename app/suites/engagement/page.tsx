@@ -822,7 +822,7 @@ export default function EngagementSuitePage() {
             <div className="flex flex-wrap items-center justify-center gap-8 text-sm text-gray-400">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-5 h-5 text-green-500" />
-                <span>14-day free trial</span>
+                <span>7-day free trial</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-5 h-5 text-green-500" />

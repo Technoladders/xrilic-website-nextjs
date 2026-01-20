@@ -9,6 +9,8 @@ import { ArrowRight, Check, Sparkles, HelpCircle, Users, Briefcase, Shield, Tren
 import { motion } from "framer-motion"
 import { ActionModal, ActionType } from "@/components/action-modal"
 
+
+
 const pricingPlans = [
   {
     name: "Starter",
@@ -63,7 +65,7 @@ const faqs = [
   {
     question: "How does the free trial work?",
     answer:
-      "Start with a 07-day free trial of our Professional plan. No credit card required. You'll have full access to all suites and features during the trial period, and you can upgrade, downgrade, or cancel anytime.",
+      "Start with a 7-day free trial of our Professional plan. No credit card required. You'll have full access to all suites and features during the trial period, and you can upgrade, downgrade, or cancel anytime.",
   },
   {
     question: "Can I change plans later?",
@@ -148,7 +150,7 @@ export default function PricingPage() {
             </h1>
 
             <p className="text-xl text-muted-foreground mb-8 text-balance">
-              Start with a 07-day free trial. No credit card required. Cancel anytime.
+              Start with a 7-day free trial. No credit card required. Cancel anytime.
             </p>
 
             <motion.div

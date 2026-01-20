@@ -11,6 +11,8 @@ import {
 import Link from "next/link"
 import { ActionModal } from "@/components/action-modal"
 
+
+
 export default function GeneralSuitePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -34,7 +36,7 @@ export default function GeneralSuitePage() {
   const faqs = [
     {
       question: "Can I manage employees across multiple locations?",
-      answer: "Yes, the General Suite supports multi-location management with location-specific holiday calendars, shifts, and policies."
+      answer: "Yes, the People Suite supports multi-location management with location-specific holiday calendars, shifts, and policies."
     },
     {
       question: "Is the leave management customizable?",
@@ -80,7 +82,7 @@ export default function GeneralSuitePage() {
             </motion.div>
 
             <motion.h1 variants={fadeInUp} className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-balance">
-              General Suite
+              People Suite
             </motion.h1>
 
             <motion.p variants={fadeInUp} className="text-xl md:text-2xl text-muted-foreground mb-8 text-balance">
@@ -237,7 +239,7 @@ export default function GeneralSuitePage() {
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Streamlined Operations</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              How General Suite organizes your workplace
+              How People Suite organizes your workplace
             </p>
           </motion.div>
 
@@ -379,7 +381,7 @@ export default function GeneralSuitePage() {
             variants={fadeInUp}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Why Choose General Suite?</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">Why Choose People Suite?</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Purpose-built for modern workforce management</p>
           </motion.div>
 
@@ -389,7 +391,7 @@ export default function GeneralSuitePage() {
                 <tr className="border-b border-border">
                   <th className="p-4 text-left text-muted-foreground">Feature</th>
                   <th className="p-4 text-center bg-primary/10 border-x border-primary/20">
-                    <div className="text-primary font-bold text-lg">General Suite</div>
+                    <div className="text-primary font-bold text-lg">People Suite</div>
                   </th>
                   <th className="p-4 text-center text-muted-foreground">Legacy HRMS</th>
                   <th className="p-4 text-center text-muted-foreground">Spreadsheets</th>
@@ -398,7 +400,7 @@ export default function GeneralSuitePage() {
               <tbody>
                 {[
                   { feature: "Real-time Dashboard", ours: true, legacy: false, manual: false },
-                  { feature: "Mobile App Access", ours: true, legacy: true, manual: false },
+                  { feature: "Leave Management", ours: true, legacy: true, manual: false },
                   { feature: "Goal Tracking (OKRs)", ours: true, legacy: false, manual: false },
                   { feature: "Automated Approvals", ours: true, legacy: true, manual: false },
                   { feature: "Advanced Analytics", ours: true, legacy: false, manual: false },
@@ -431,7 +433,7 @@ export default function GeneralSuitePage() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-24 bg-background">
+      {/* <section className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -446,7 +448,7 @@ export default function GeneralSuitePage() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                quote: "The General Suite completely organized our chaos. We finally have a single source of truth for all employee data.",
+                quote: "The People Suite completely organized our chaos. We finally have a single source of truth for all employee data.",
                 author: "Sarah Jenkins",
                 role: "HR Director",
                 company: "RetailCo"
@@ -485,7 +487,7 @@ export default function GeneralSuitePage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       <section className="py-24 bg-gradient-to-br from-primary/20 via-background to-background relative overflow-hidden">

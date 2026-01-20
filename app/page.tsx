@@ -81,7 +81,8 @@ const DASHBOARD_IMAGES = [
 const SUITES_DATA = [
   { 
     id: "general",
-    name: "General Suite", 
+    name: "People Suite", 
+    logo: "xrilic-logos/black/Xrilic.B.people.svg", // Path to your general logo
     icon: LayoutDashboard, 
     color: "primary",
     title: "Centralize HR Operations & Workforce Management",
@@ -95,6 +96,7 @@ const SUITES_DATA = [
   { 
     id: "hiring",
     name: "Hiring Suite", 
+    logo: "/logo/Xrilic Recruit.svg",
     icon: Users, 
     color: "purple-500",
     title: "Automate Your Complete Recruitment Workflow",
@@ -108,6 +110,7 @@ const SUITES_DATA = [
   { 
     id: "verification",
     name: "Verification", 
+    logo: "/logo/Xrilic Verify Black.svg",
     icon: Shield, 
     color: "emerald-500",
     title: "Build Trust with Automated Background Verification",
@@ -121,6 +124,7 @@ const SUITES_DATA = [
   { 
     id: "sales",
     name: "Sales (CRM)", 
+    logo: "/logo/Xrilic CRM.svg",
     icon: Briefcase, 
     color: "pink-500",
     title: "Manage Client Relationships & Company Records",
@@ -134,6 +138,7 @@ const SUITES_DATA = [
   { 
     id: "finance",
     name: "Finance Suite", 
+    logo: "/logo/Xrilic Books.svg",
     icon: DollarSign, 
     color: "blue-500",
     title: "Centralize Financial Operations & Reporting",
@@ -393,35 +398,37 @@ export default function Home() {
               animate="visible"
               variants={fadeIn}
               transition={{ duration: 0.4 }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-6"
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/70 dark:bg-primary/10 border border-primary/20 mb-6"
             >
-              <Sparkles className="w-4 h-4 text-primary" />
-              <span className="text-sm text-muted-foreground">
-                Hiring on autopilot, made affordable
+              <Sparkles className="w-4 h-4 text-white dark:text-primary" />
+              <span className="text-sm text-white dark:text-white">
+                Enterprise Business Suite, Simplified
               </span>
             </motion.div>
 
-            <motion.h1
-              initial="hidden"
-              animate="visible"
-              variants={fadeInUp}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-balance"
-            >
-              Smart workflows, actionable insights,{" "}
-              <span className="bg-gradient-to-r from-primary via-purple-500 to-pink-500 bg-clip-text text-transparent">
-                and faster hires together
-              </span>
-            </motion.h1>
+           <motion.h1
+  initial="hidden"
+  animate="visible"
+  variants={fadeInUp}
+  transition={{ duration: 0.6, delay: 0.2 }}
+  className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-balance text-center"
+>
+  One platform. Every function.
+  <br />
+  <span className="bg-gradient-to-r from-primary via-purple-500 to-pink-500 bg-clip-text text-transparent">
+    Zero chaos.
+  </span>
+</motion.h1>
 
             <motion.p
               initial="hidden"
               animate="visible"
               variants={fadeInUp}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto text-balance"
+              className="text-xl text-foreground dark:text-muted-foreground mb-8 max-w-2xl mx-auto text-balance"
             >
-              Let AI deliver candidates who fit — instantly. Automate your recruitment workflow in minutes.
+              Manage your entire business with AI-powered intelligence 
+across 5 integrated suites. Start in minutes.
             </motion.p>
 
             <motion.div
@@ -436,7 +443,7 @@ export default function Home() {
                 className="bg-primary hover:bg-primary/90 ..."
                 onClick={() => openModal("sales")} // TRIGGER TRIAL
               >
-                Start 07-day free trial
+                Start 7 day free trial
               </Button>
 
               <Button
@@ -515,40 +522,38 @@ export default function Home() {
           </motion.div>
 
           {/* TAB BUTTONS */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            variants={staggerContainer}
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-12"
-          >
-            {SUITES_DATA.map((tab) => {
-              const isActive = activeTab === tab.id;
-              return (
-                <motion.button
-                  key={tab.name}
-                  onClick={() => setActiveTab(tab.id)}
-                  variants={scaleIn}
-                  whileHover={{ scale: 1.05, y: -4 }}
-                  className={`p-4 rounded-lg border transition-all text-left group ${
-                    isActive 
-                      ? `bg-${tab.color}/10 border-${tab.color} ring-1 ring-${tab.color}/50 shadow-lg` 
-                      : "bg-card border-border hover:border-primary/50 hover:shadow-md"
-                  }`}
-                >
-                  <motion.div
-                    animate={isActive ? { scale: 1.1 } : { scale: 1 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <tab.icon className={`w-5 h-5 mb-2 text-${tab.color}`} />
-                  </motion.div>
-                  <div className={`text-sm font-medium ${isActive ? "text-foreground" : "text-muted-foreground"}`}>
-                    {tab.name}
-                  </div>
-                </motion.button>
-              )
-            })}
-          </motion.div>
+{/* TAB BUTTONS */}
+<motion.div
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, margin: "-50px" }}
+  variants={staggerContainer}
+  className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-12"
+>
+{SUITES_DATA.map((tab) => {
+  const isActive = activeTab === tab.id;
+  return (
+    <motion.button
+      key={tab.name}
+      onClick={() => setActiveTab(tab.id)}
+      className={`p-6 rounded-xl border transition-all flex flex-col items-center justify-center gap-4 group ${
+        isActive 
+          ? `bg-background border-${tab.color} ring-2 ring-${tab.color}/20 shadow-xl` 
+          : "bg-card/50 border-border opacity-70 hover:opacity-100"
+      }`}
+    >
+      <div className="relative h-18 w-full flex items-center justify-center">
+        <img
+          src={tab.logo}
+          alt={tab.name}
+          // ADDED: dark:invert applied to all suite logos
+          className={`h-full w-auto object-contain transition-all duration-300 dark:invert`}
+        />
+      </div>
+    </motion.button>
+  )
+})}
+</motion.div>
 
           {/* ANIMATED FEATURE CONTENT */}
           <AnimatePresence mode="wait">
@@ -563,13 +568,18 @@ export default function Home() {
                     transition={{ duration: 0.4, ease: "easeInOut" }}
                   >
                     <FeatureSection
-                      badge={{ icon: suite.icon, text: suite.name, color: suite.color }}
-                      title={suite.title}
-                      features={suite.features}
-                      capabilities={suite.capabilities}
-                      visualCard={renderVisualCard(suite.id)}
-                      reverse={suite.id === "hiring" || suite.id === "sales"} // Alternate layouts
-                    />
+  badge={{ 
+    logo: suite.logo, 
+    text: suite.name, 
+    color: suite.color,
+    id: suite.id 
+  }}
+  title={suite.title}
+  features={suite.features}
+  capabilities={suite.capabilities}
+  visualCard={renderVisualCard(suite.id)}
+  reverse={suite.id === "hiring" || suite.id === "sales"}
+/>
                   </motion.div>
                 )
               }
@@ -604,8 +614,8 @@ export default function Home() {
               <div className="space-y-4">
                 {[
                   "Clean, distraction-free layouts",
-                  "Dark & Light mode support",
-                  "Mobile-responsive dashboards",
+                  "Responsive role-based views",
+                  "Customizable dashboard",
                   "Real-time data visualization"
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-3">
@@ -988,105 +998,124 @@ export default function Home() {
       </section>
 
 {/* Suites Section (Links) */}
-      <section className="py-24 bg-gradient-to-b from-background to-muted/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+{/* Suites Section (Links) */}
+<section className="py-24 bg-gradient-to-b from-background to-muted/20">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="text-center mb-16"
+    >
+      <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+        Comprehensive Business OS
+      </h2>
+      <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+        Streamline recruitment, human resources, employee verification, sales pipeline management, and financial operations without juggling multiple tools. One login, one dashboard, complete control.
+      </p>
+    </motion.div>
+
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+      {[
+        {
+          id: "general",
+          title: "People Suite",
+          logo: "xrilic-logos/black/Xrilic.B.people.svg",
+          description: "Centralize HR operations, employee directory, and workforce management.",
+          features: ["HR Dashboard", "Goal Tracking", "Timesheets & Leave", "Approval Workflows"],
+          link: "/suites/general", 
+          color: "text-primary",
+          borderColor: "border-primary/20",
+          hoverBorder: "hover:border-primary/50",
+          iconColor: "text-primary"
+        },
+        {
+          id: "hiring",
+          title: "Hiring Suite",
+          logo: "/logo/Xrilic Recruit.svg",
+          description: "Automate candidate sourcing, tracking, and placement with AI precision.",
+          features: ["AI Matching", "Job Dashboard", "Bench Management", "Client Portal"],
+          link: "/suites/hiring",
+          color: "text-purple-500",
+          borderColor: "border-purple-500/20",
+          hoverBorder: "hover:border-purple-500/50",
+          iconColor: "text-purple-500"
+        },
+        {
+          id: "verification",
+          title: "Verification Suite",
+          logo: "/logo/Xrilic Verify Black.svg",
+          description: "Run automated background checks and maintain compliance at scale.",
+          features: ["Identity Verification", "Employment History", "UAN Checks", "Credit Analytics"],
+          link: "/suites/verification",
+          color: "text-emerald-500",
+          borderColor: "border-emerald-500/20",
+          hoverBorder: "hover:border-emerald-500/50",
+          iconColor: "text-emerald-500"
+        },
+        {
+          id: "sales",
+          title: "Sales Suite",
+          logo: "/logo/Xrilic CRM.svg",
+          description: "Build strong client partnerships with comprehensive company and contact management.",
+          features: ["Pipeline Kanban", "Apollo.io Integration", "Contact Management", "List Segmentation"],
+          link: "/suites/sales",
+          color: "text-pink-500",
+          borderColor: "border-pink-500/20",
+          hoverBorder: "hover:border-pink-500/50",
+          iconColor: "text-pink-500"
+        },
+        {
+          id: "finance",
+          title: "Finance Suite",
+          logo: "/logo/Xrilic Books.svg",
+          description: "Control your entire financial operation with integrated invoicing and payroll.",
+          features: ["Revenue Dashboard", "Auto Invoicing", "Payroll Processing", "Expense Tracking"],
+          link: "/suites/finance",
+          color: "text-blue-500",
+          borderColor: "border-blue-500/20",
+          hoverBorder: "hover:border-blue-500/50",
+          iconColor: "text-blue-500"
+        },
+      ].map((suite, index) => (
+        <Link key={index} href={suite.link} className="group h-full">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            whileHover={{ scale: 1.02, y: -5 }}
+            className={`h-full p-8 bg-card rounded-xl border ${suite.borderColor} ${suite.hoverBorder} transition-all shadow-sm hover:shadow-lg flex flex-col`}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-              Comprehensive Business OS
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Everything you need to manage recruitment, HR, verification, sales, and finance in one integrated platform.
-            </p>
+            {/* LOGO REPLACEMENT FOR TITLE */}
+            <div className="h-10 w-fit mb-6">
+              <img 
+                src={suite.logo} 
+                alt={suite.title} 
+                className={`h-14 w-auto object-contain dark:invert`}
+              />
+            </div>
+            
+            <p className="text-muted-foreground mb-6 flex-grow">{suite.description}</p>
+            <ul className="space-y-3 mb-8">
+              {suite.features.map((feature, idx) => (
+                <li key={idx} className="flex items-center gap-3 text-sm text-muted-foreground">
+                  <CheckCircle2 className={`w-4 h-4 ${suite.iconColor} flex-shrink-0`} />
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+            <div className={`mt-auto flex items-center font-semibold ${suite.color} transition-colors`}>
+              Learn More
+              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+            </div>
           </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
-            {[
-              {
-                title: "General Suite",
-                description: "Centralize HR operations, employee directory, and workforce management.",
-                features: ["HR Dashboard", "Goal Tracking", "Timesheets & Leave", "Approval Workflows"],
-                link: "/suites/general", 
-                color: "text-primary",
-                borderColor: "border-primary/20",
-                hoverBorder: "hover:border-primary/50",
-                iconColor: "text-primary"
-              },
-              {
-                title: "Hiring Suite",
-                description: "Automate candidate sourcing, tracking, and placement with AI precision.",
-                features: ["AI Matching", "Job Dashboard", "Bench Management", "Client Portal"],
-                link: "/suites/hiring",
-                color: "text-purple-500",
-                borderColor: "border-purple-500/20",
-                hoverBorder: "hover:border-purple-500/50",
-                iconColor: "text-purple-500"
-              },
-              {
-                title: "Verification Suite",
-                description: "Run automated background checks and maintain compliance at scale.",
-                features: ["Identity Verification", "Employment History", "UAN Checks", "Credit Analytics"],
-                link: "/suites/verification",
-                color: "text-emerald-500",
-                borderColor: "border-emerald-500/20",
-                hoverBorder: "hover:border-emerald-500/50",
-                iconColor: "text-emerald-500"
-              },
-              {
-                title: "Sales Suite",
-                description: "Build strong client partnerships with comprehensive company and contact management.",
-                features: ["Pipeline Kanban", "Apollo.io Integration", "Contact Management", "List Segmentation"],
-                link: "/suites/sales",
-                color: "text-pink-500",
-                borderColor: "border-pink-500/20",
-                hoverBorder: "hover:border-pink-500/50",
-                iconColor: "text-pink-500"
-              },
-              {
-                title: "Finance Suite",
-                description: "Control your entire financial operation with integrated invoicing and payroll.",
-                features: ["Revenue Dashboard", "Auto Invoicing", "Payroll Processing", "Expense Tracking"],
-                link: "/suites/finance",
-                color: "text-blue-500",
-                borderColor: "border-blue-500/20",
-                hoverBorder: "hover:border-blue-500/50",
-                iconColor: "text-blue-500"
-              },
-            ].map((suite, index) => (
-              <Link key={index} href={suite.link} className="group h-full">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ scale: 1.02, y: -5 }}
-                  className={`h-full p-8 bg-card rounded-xl border ${suite.borderColor} ${suite.hoverBorder} transition-all shadow-sm hover:shadow-lg flex flex-col`}
-                >
-                  <h3 className="text-2xl font-bold mb-4 text-foreground">{suite.title}</h3>
-                  <p className="text-muted-foreground mb-6 flex-grow">{suite.description}</p>
-                  <ul className="space-y-3 mb-8">
-                    {suite.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center gap-3 text-sm text-muted-foreground">
-                        <CheckCircle2 className={`w-4 h-4 ${suite.iconColor} flex-shrink-0`} />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className={`mt-auto flex items-center font-semibold ${suite.color} transition-colors`}>
-                    Learn More
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </motion.div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+        </Link>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* Ready to Transform Your Hiring? Section */}
       <section className="py-24 bg-gradient-to-br from-purple-900/20 via-muted/20 to-background relative overflow-hidden">
@@ -1130,7 +1159,7 @@ export default function Home() {
             <div className="flex flex-wrap items-center justify-center gap-8 text-sm text-gray-400">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-5 h-5 text-green-500" />
-                <span>14-day free trial</span>
+                <span>7-day free trial</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-5 h-5 text-green-500" />
@@ -1165,7 +1194,7 @@ function FeatureSection({
   visualCard,
   reverse = false,
 }: {
-  badge: { icon: any; text: string; color: string }
+  badge: { logo: string; text: string; color: string; id: string }
   title: string
   features: { title: string; description: string }[]
   capabilities: string[]
@@ -1176,11 +1205,15 @@ function FeatureSection({
     <div className={`grid lg:grid-cols-2 gap-12 items-center ${reverse ? "lg:flex-row-reverse" : ""}`}>
       {/* TEXT SIDE */}
       <div className={reverse ? "lg:order-2" : ""}>
-        <div
-          className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-${badge.color}/10 border border-${badge.color}/20 mb-4`}
+         <div
+          className={`inline-flex items-center gap-3 px-4 py-2 rounded-full bg-background border border-${badge.color}/20 mb-6 shadow-sm`}
         >
-          <badge.icon className={`w-4 h-4 text-${badge.color}`} />
-          <span className="text-sm">{badge.text}</span>
+          <img 
+            src={badge.logo} 
+            alt="" 
+            className="w-fit h-12 object-contain dark:invert" 
+          />
+          {/* <span className="text-sm font-semibold tracking-wide uppercase">{badge.text}</span> */}
         </div>
         <h3 className="text-3xl md:text-4xl font-bold mb-6">{title}</h3>
 

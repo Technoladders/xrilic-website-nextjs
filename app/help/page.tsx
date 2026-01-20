@@ -90,7 +90,7 @@ const faqs = [
   {
     question: "Can I try xrilic.ai before purchasing?",
     answer:
-      "We offer a 14-day free trial with full access to all Professional plan features. No credit card required. You can upgrade, downgrade, or cancel anytime during or after the trial. If you need more time to evaluate, contact our sales team for an extended trial.",
+      "We offer a 7-day free trial with full access to all Professional plan features. No credit card required. You can upgrade, downgrade, or cancel anytime during or after the trial. If you need more time to evaluate, contact our sales team for an extended trial.",
   },
 ]
 

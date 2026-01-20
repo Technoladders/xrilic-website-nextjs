@@ -249,46 +249,46 @@ export default function SolutionsPage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent" />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={fadeInUp}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-6">
-              <Zap className="w-4 h-4 text-primary" />
-              <span className="text-sm text-muted-foreground">End-to-End Business Solutions</span>
-            </div>
+     <motion.div
+  initial="hidden"
+  animate="visible"
+  variants={fadeInUp}
+  transition={{ duration: 0.6 }}
+  className="text-center max-w-4xl mx-auto"
+>
+  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-6">
+    <Zap className="w-4 h-4 text-primary" />
+    <span className="text-sm text-muted-foreground">End-to-End Business Solutions</span>
+  </div>
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-balance">
-              Transform Your{" "}
-              <span className="bg-gradient-to-r from-primary via-purple-500 to-pink-500 bg-clip-text text-transparent">
-                Operations
-              </span>
-            </h1>
+  <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-balance">
+    Stop switching between{" "}
+    <span className="bg-gradient-to-r from-primary via-purple-500 to-pink-500 bg-clip-text text-transparent">
+      dozens of tools.
+    </span>
+  </h1>
 
-            <p className="text-xl text-muted-foreground mb-8 text-balance">
-              Integrated platform delivering HR, recruitment, verification, sales, and finance solutions – unified for efficiency and growth.
-            </p>
+  <p className="text-xl text-muted-foreground mb-8 text-balance">
+    Manage your entire business from one place.
+  </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button
-                size="lg"
-                className="bg-primary hover:bg-primary/90 hover:scale-105 transition-all duration-300 text-base px-8"
-              >
-                Discover Solutions
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="text-base px-8 bg-transparent hover:scale-105 transition-all duration-300"
-              >
-                Find Your Fit
-              </Button>
-            </div>
-          </motion.div>
+  <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+    <Button
+      size="lg"
+      className="bg-primary hover:bg-primary/90 hover:scale-105 transition-all duration-300 text-base px-8"
+    >
+      Discover Solutions
+      <ArrowRight className="ml-2 w-4 h-4" />
+    </Button>
+    <Button
+      size="lg"
+      variant="outline"
+      className="text-base px-8 bg-transparent hover:scale-105 transition-all duration-300"
+    >
+      Find Your Fit
+    </Button>
+  </div>
+</motion.div>
         </div>
       </section>
 

@@ -1,6 +1,7 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { useTheme } from "next-themes"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ModeToggle } from "@/components/mode-toggle"
@@ -12,17 +13,34 @@ export function SiteHeader() {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isProductsOpen, setIsProductsOpen] = useState(false)
 
+
+   // Theme handling logic
+  const { resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  // Ensure component is mounted to avoid hydration mismatch
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  // Determine which logo to show
+  // If not mounted yet, we show the default light logo to prevent layout shift
+  const logoSrc = mounted && resolvedTheme === "dark" 
+    ? "/xrilic-logos/white/xrilic.W.ai.svg" 
+    : "/logo/xrilic_ai.svg"
+
   return (
     <>
       <nav className="border-b border-border/40 backdrop-blur-sm bg-background/80 sticky top-0 z-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-8">
-              <Link
-                href="/"
-                className="text-2xl font-bold bg-gradient-to-r from-primary via-purple-500 to-pink-500 bg-clip-text text-transparent"
-              >
-                xrilic.ai
+              <Link href="/" className="flex items-center">
+                <img 
+                  src={logoSrc} 
+                  alt="xrilic.ai" 
+                  className="h-12 w-auto transition-opacity duration-300" 
+                />
               </Link>
               <div className="hidden md:flex items-center gap-6">
                 <div
@@ -54,7 +72,7 @@ export function SiteHeader() {
                           href="/suites/general"
                           className="block px-4 py-3 hover:bg-purple-500/10 transition-colors"
                         >
-                          <div className="font-semibold text-sm mb-1">General Suite</div>
+                          <div className="font-semibold text-sm mb-1">People Suite</div>
                           <div className="text-xs text-muted-foreground">Integrated HR and operations management</div>
                         </Link>
                         <Link

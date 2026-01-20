@@ -9,6 +9,8 @@ import { motion } from "framer-motion"
 import { ActionModal, ActionType } from "@/components/action-modal"
 
 
+
+
 const team = [
   {
     name: "Sarah Chen",

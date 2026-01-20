@@ -27,6 +27,9 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 
+
+
+
 export default function HiringSuitePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const [searchQuery, setSearchQuery] = useState("")

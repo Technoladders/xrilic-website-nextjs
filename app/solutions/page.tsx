@@ -23,6 +23,7 @@ import {
   Workflow,
 } from "lucide-react"
 import { motion } from "framer-motion"
+import { ActionModal, ActionType } from "@/components/action-modal"
 
 const solutions = [
   {
@@ -129,6 +130,14 @@ export default function SolutionsPage() {
   const [painPoints, setPainPoints] = useState<string[]>([])
   const [recommendations, setRecommendations] = useState<{ solution: string; features: string[] }[]>([])
   const [showRecommendations, setShowRecommendations] = useState(false)
+
+    const [modalState, setModalState] = useState<{ isOpen: boolean; tab: ActionType }>({
+    isOpen: false,
+    tab: "demo"
+  })
+  
+  const openModal = (tab: ActionType) => setModalState({ isOpen: true, tab })
+  const closeModal = () => setModalState(prev => ({ ...prev, isOpen: false }))
 
   const painPointOptions = [
     { id: "hr-fragmentation", label: "Scattered HR data across systems", suite: "HR" },
@@ -697,6 +706,7 @@ export default function SolutionsPage() {
             <Button
               size="lg"
               className="bg-primary hover:bg-primary/90 hover:scale-105 hover:shadow-lg hover:shadow-primary/50 transition-all duration-300 text-base px-8"
+              onClick={() => openModal("demo")}
             >
               Start Free Trial
               <ArrowRight className="ml-2 w-4 h-4" />
@@ -705,6 +715,7 @@ export default function SolutionsPage() {
               size="lg"
               variant="outline"
               className="text-base px-8 bg-transparent hover:scale-105 hover:border-primary/50 transition-all duration-300"
+              onClick={() => openModal("sales")}
             >
               Talk to Sales
             </Button>
@@ -712,6 +723,12 @@ export default function SolutionsPage() {
         </motion.div>
       </section>
 
+
+<ActionModal 
+        isOpen={modalState.isOpen} 
+        onClose={closeModal} 
+        defaultTab={modalState.tab} 
+      />
     </div>
   )
 }

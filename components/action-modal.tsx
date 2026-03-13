@@ -426,7 +426,7 @@ export function ActionModal({
           
           <button 
             onClick={onClose} 
-            className="absolute top-6 right-6 p-2 rounded-full hover:bg-muted transition-colors z-20"
+            className="absolute top-2 right-2 p-2 rounded-full hover:bg-muted transition-colors z-20"
           >
             <X className="w-5 h-5 text-muted-foreground" />
           </button>
@@ -445,7 +445,7 @@ export function ActionModal({
                 <div className="mb-8">
                   <div className="flex items-center justify-between text-xs font-medium text-muted-foreground mb-2">
                     <span>Step {step + 1} of {schema.steps.length}</span>
-                    <span>{Math.round(((step + 1) / schema.steps.length) * 100)}%</span>
+                    <span className="pr-8">{Math.round(((step + 1) / schema.steps.length) * 100)}%</span>
                   </div>
                   <div className="h-1 w-full bg-muted rounded-full overflow-hidden">
                     <motion.div 

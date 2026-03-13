@@ -29,7 +29,7 @@ import {
   Building2
 } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ActionModal } from "@/components/action-modal"
+import { ActionModal, ActionType } from "@/components/action-modal"
 
 const features = {
   general: {
@@ -244,7 +244,13 @@ const comparisonData = [
 
 export default function FeaturesPage() {
   const [selectedSuite, setSelectedSuite] = useState<keyof typeof features>("general")
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [modalState, setModalState] = useState<{ isOpen: boolean; tab: ActionType }>({
+    isOpen: false,
+    tab: "demo"
+  })
+  
+  const openModal = (tab: ActionType) => setModalState({ isOpen: true, tab })
+  const closeModal = () => setModalState(prev => ({ ...prev, isOpen: false }))
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 40 },
@@ -292,13 +298,11 @@ export default function FeaturesPage() {
       </motion.p>
 
       <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <Button size="lg" onClick={() => setIsModalOpen(true)} className="bg-primary hover:bg-primary/90 text-base px-8">
+        <Button size="lg" onClick={() => openModal("demo")} className="bg-primary hover:bg-primary/90 hover:scale-105 hover:shadow-lg hover:shadow-primary/50 transition-all duration-300 text-base px-8">
           Start Free Trial
           <ArrowRight className="ml-2 w-4 h-4" />
         </Button>
-        <Button size="lg" variant="outline" className="text-base px-8 bg-transparent">
-          View Pricing
-        </Button>
+        
       </motion.div>
     </motion.div>
   </div>
@@ -511,7 +515,7 @@ export default function FeaturesPage() {
             <Button
               size="lg"
               className="bg-primary hover:bg-primary/90 hover:scale-105 hover:shadow-lg hover:shadow-primary/50 transition-all duration-300 text-base px-8"
-              onClick={() => setIsModalOpen(true)}
+              onClick={() => openModal("demo")}
             >
               Start Free Trial
               <ArrowRight className="ml-2 w-4 h-4" />
@@ -520,7 +524,7 @@ export default function FeaturesPage() {
               size="lg"
               variant="outline"
               className="text-base px-8 bg-transparent hover:scale-105 hover:border-primary/50 transition-all duration-300"
-              onClick={() => setIsModalOpen(true)}
+              onClick={() => openModal("sales")}
             >
               Talk to Sales
             </Button>
@@ -528,7 +532,11 @@ export default function FeaturesPage() {
         </motion.div>
       </section>
 
-      <ActionModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} defaultTab="demo" />
+      <ActionModal 
+        isOpen={modalState.isOpen} 
+        onClose={closeModal} 
+        defaultTab={modalState.tab} 
+      />
     </div>
   )
 }

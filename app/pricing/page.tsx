@@ -100,10 +100,13 @@ const faqs = [
 ]
 
 export default function PricingPage() {
-  const [modalState, setModalState] = useState({ isOpen: false, tab: "" })
-
-  const openModal = (tab: string) => setModalState({ isOpen: true, tab })
-  const closeModal = () => setModalState({ isOpen: false, tab: "" })
+ const [modalState, setModalState] = useState<{ isOpen: boolean; tab: ActionType }>({
+    isOpen: false,
+    tab: "demo"
+  })
+  
+  const openModal = (tab: ActionType) => setModalState({ isOpen: true, tab })
+  const closeModal = () => setModalState(prev => ({ ...prev, isOpen: false }))
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
@@ -163,6 +166,7 @@ export default function PricingPage() {
               <Button
                 size="lg"
                 className="bg-primary hover:bg-primary/90 hover:scale-105 transition-all duration-300 text-base px-8"
+              onClick={() => openModal("demo")}
               >
                 Start Free Trial
                 <ArrowRight className="ml-2 w-4 h-4" />
@@ -421,7 +425,8 @@ export default function PricingPage() {
             <Button
               size="lg"
               className="bg-primary hover:bg-primary/90 hover:scale-105 hover:shadow-lg hover:shadow-primary/50 transition-all duration-300 text-base px-8"
-            >
+           onClick={() => openModal("demo")}
+           >
               Start Free Trial
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>

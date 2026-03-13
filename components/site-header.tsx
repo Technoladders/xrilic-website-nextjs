@@ -26,8 +26,8 @@ export function SiteHeader() {
   // Determine which logo to show
   // If not mounted yet, we show the default light logo to prevent layout shift
   const logoSrc = mounted && resolvedTheme === "dark" 
-    ? "/xrilic-logos/white/xrilic.W.ai.svg" 
-    : "/logo/xrilic_ai.svg"
+    ? "/xrilic-logos/white/xrilic-logo.white.png" 
+    : "/xrilic-logos/black/xrilic-logo.black.png"
 
   return (
     <>
@@ -122,9 +122,9 @@ export function SiteHeader() {
                 <Link href="/pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Pricing
                 </Link>
-                <Link href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                {/* <Link href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   About
-                </Link>
+                </Link> */}
               </div>
             </div>
             <div className="flex items-center gap-3">

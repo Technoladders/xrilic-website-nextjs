@@ -82,7 +82,8 @@ const SUITES_DATA = [
   { 
     id: "general",
     name: "People Suite", 
-    logo: "xrilic-logos/black/Xrilic.B.people.svg", // Path to your general logo
+    logoLight: "/xrilic-logos/black/Xrilic.B.people.svg",
+    logoDark: "/xrilic-logos/white/Xrilic.W.people.svg",
     icon: LayoutDashboard, 
     color: "primary",
     title: "Centralize HR Operations & Workforce Management",
@@ -96,7 +97,8 @@ const SUITES_DATA = [
   { 
     id: "hiring",
     name: "Hiring Suite", 
-    logo: "/logo/Xrilic Recruit.svg",
+    logoLight: "/logo/Xrilic Recruit.svg",
+    logoDark: "/xrilic-logos/white/Xrilic.W.recruit.svg",
     icon: Users, 
     color: "purple-500",
     title: "Automate Your Complete Recruitment Workflow",
@@ -110,7 +112,8 @@ const SUITES_DATA = [
   { 
     id: "verification",
     name: "Verification", 
-    logo: "/logo/Xrilic Verify Black.svg",
+    logoLight: "/logo/Xrilic Verify Black.svg",
+    logoDark: "/xrilic-logos/white/Xrilic.W.verify.svg",
     icon: Shield, 
     color: "emerald-500",
     title: "Build Trust with Automated Background Verification",
@@ -124,7 +127,8 @@ const SUITES_DATA = [
   { 
     id: "sales",
     name: "Sales (CRM)", 
-    logo: "/logo/Xrilic CRM.svg",
+    logoLight: "/logo/Xrilic CRM.svg",
+    logoDark: "/xrilic-logos/white/Xrilic.W.crm.svg",
     icon: Briefcase, 
     color: "pink-500",
     title: "Manage Client Relationships & Company Records",
@@ -138,7 +142,8 @@ const SUITES_DATA = [
   { 
     id: "finance",
     name: "Finance Suite", 
-    logo: "/logo/Xrilic Books.svg",
+    logoLight: "/logo/Xrilic Books.svg",
+    logoDark: "/xrilic-logos/white/Xrilic.W.books.svg",
     icon: DollarSign, 
     color: "blue-500",
     title: "Centralize Financial Operations & Reporting",
@@ -504,7 +509,7 @@ across 5 integrated suites. Start in minutes.
       </section>
 
       {/* Main Value Prop / Suite Navigation */}
-      <section className="mt-24 py-20 bg-gradient-to-b from-background to-card/20 min-h-[800px]">
+<section className="mt-24 py-20 bg-gradient-to-b from-background to-card/20 min-h-[800px]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -522,43 +527,74 @@ across 5 integrated suites. Start in minutes.
           </motion.div>
 
           {/* TAB BUTTONS */}
-{/* TAB BUTTONS */}
-<motion.div
-  initial="hidden"
-  whileInView="visible"
-  viewport={{ once: true, margin: "-50px" }}
-  variants={staggerContainer}
-  className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-12"
->
-{SUITES_DATA.map((tab) => {
-  const isActive = activeTab === tab.id;
-  return (
-    <motion.button
-      key={tab.name}
-      onClick={() => setActiveTab(tab.id)}
-      className={`p-6 rounded-xl border transition-all flex flex-col items-center justify-center gap-4 group ${
-        isActive 
-          ? `bg-background border-${tab.color} ring-2 ring-${tab.color}/20 shadow-xl` 
-          : "bg-card/50 border-border opacity-70 hover:opacity-100"
-      }`}
-    >
-      <div className="relative h-18 w-full flex items-center justify-center">
-        <img
-          src={tab.logo}
-          alt={tab.name}
-          // ADDED: dark:invert applied to all suite logos
-          className={`h-full w-auto object-contain transition-all duration-300 dark:invert`}
-        />
-      </div>
-    </motion.button>
-  )
-})}
-</motion.div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={staggerContainer}
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-12"
+          >
+            {SUITES_DATA.map((tab) => {
+              const isActive = activeTab === tab.id;
+              
+              // Helper to map tab IDs to new text & gradients for light/dark themes
+              const getSuiteStyles = (id: string) => {
+                switch (id) {
+                  case "general": return { text: "People", gradient: "from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400" };
+                  case "hiring": return { text: "Recruit", gradient: "from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400" };
+                  case "verification": return { text: "Verify", gradient: "from-emerald-600 to-teal-600 dark:from-emerald-400 dark:to-teal-400" };
+                  case "sales": return { text: "CRM", gradient: "from-pink-600 to-rose-600 dark:from-pink-400 dark:to-rose-400" };
+                  case "finance": return { text: "Books", gradient: "from-cyan-600 to-blue-600 dark:from-cyan-400 dark:to-blue-400" };
+                  default: return { text: tab.name, gradient: "from-primary to-primary/80" };
+                }
+              };
+              
+              const style = getSuiteStyles(tab.id);
+
+              return (
+                <motion.button
+                  key={tab.name}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`p-6 rounded-xl border transition-all flex flex-col items-center justify-center gap-4 group ${
+                    isActive 
+                      ? `bg-background border-${tab.color} ring-2 ring-${tab.color}/20 shadow-xl` 
+                      : "bg-card/20 border-border opacity-70 hover:opacity-100"
+                  }`}
+                >
+                  <div className="relative h-18 w-full flex items-center justify-center">
+                    <span 
+                      className={`text-2xl md:text-3xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r transition-all duration-300 ${
+                        isActive 
+                          ? style.gradient
+                          : "from-muted-foreground to-muted-foreground group-hover:from-foreground group-hover:to-foreground"
+                      }`}
+                    >
+                      {style.text}
+                    </span>
+                  </div>
+                </motion.button>
+              )
+            })}
+          </motion.div>
 
           {/* ANIMATED FEATURE CONTENT */}
           <AnimatePresence mode="wait">
             {SUITES_DATA.map((suite) => {
               if (activeTab === suite.id) {
+                // Re-use helper for the feature section
+                const getSuiteStyles = (id: string) => {
+                  switch (id) {
+                    case "general": return { text: "People", gradient: "from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400" };
+                    case "hiring": return { text: "Recruit", gradient: "from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400" };
+                    case "verification": return { text: "Verify", gradient: "from-emerald-600 to-teal-600 dark:from-emerald-400 dark:to-teal-400" };
+                    case "sales": return { text: "CRM", gradient: "from-pink-600 to-rose-600 dark:from-pink-400 dark:to-rose-400" };
+                    case "finance": return { text: "Books", gradient: "from-cyan-600 to-blue-600 dark:from-cyan-400 dark:to-blue-400" };
+                    default: return { text: suite.name, gradient: "from-primary to-primary/80" };
+                  }
+                };
+                
+                const style = getSuiteStyles(suite.id);
+
                 return (
                   <motion.div
                     key={suite.id}
@@ -568,18 +604,18 @@ across 5 integrated suites. Start in minutes.
                     transition={{ duration: 0.4, ease: "easeInOut" }}
                   >
                     <FeatureSection
-  badge={{ 
-    logo: suite.logo, 
-    text: suite.name, 
-    color: suite.color,
-    id: suite.id 
-  }}
-  title={suite.title}
-  features={suite.features}
-  capabilities={suite.capabilities}
-  visualCard={renderVisualCard(suite.id)}
-  reverse={suite.id === "hiring" || suite.id === "sales"}
-/>
+                      badge={{ 
+                        text: style.text, 
+                        gradient: style.gradient, // Passed gradient instead of logo
+                        color: suite.color,
+                        id: suite.id 
+                      }}
+                      title={suite.title}
+                      features={suite.features}
+                      capabilities={suite.capabilities}
+                      visualCard={renderVisualCard(suite.id)}
+                      reverse={suite.id === "hiring" || suite.id === "sales"}
+                    />
                   </motion.div>
                 )
               }
@@ -997,7 +1033,7 @@ across 5 integrated suites. Start in minutes.
         </div>
       </section>
 
-{/* Suites Section (Links) */}
+
 {/* Suites Section (Links) */}
 <section className="py-24 bg-gradient-to-b from-background to-muted/20">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1021,7 +1057,8 @@ across 5 integrated suites. Start in minutes.
         {
           id: "general",
           title: "People Suite",
-          logo: "xrilic-logos/black/Xrilic.B.people.svg",
+          logoLight: "/xrilic-logos/black/Xrilic.B.people.svg",
+          logoDark: "/xrilic-logos/white/Xrilic.W.people.svg",
           description: "Centralize HR operations, employee directory, and workforce management.",
           features: ["HR Dashboard", "Goal Tracking", "Timesheets & Leave", "Approval Workflows"],
           link: "/suites/general", 
@@ -1033,7 +1070,8 @@ across 5 integrated suites. Start in minutes.
         {
           id: "hiring",
           title: "Hiring Suite",
-          logo: "/logo/Xrilic Recruit.svg",
+          logoLight: "/logo/Xrilic Recruit.svg",
+          logoDark: "/xrilic-logos/white/Xrilic.W.recruit.svg",
           description: "Automate candidate sourcing, tracking, and placement with AI precision.",
           features: ["AI Matching", "Job Dashboard", "Bench Management", "Client Portal"],
           link: "/suites/hiring",
@@ -1045,7 +1083,8 @@ across 5 integrated suites. Start in minutes.
         {
           id: "verification",
           title: "Verification Suite",
-          logo: "/logo/Xrilic Verify Black.svg",
+          logoLight: "/logo/Xrilic Verify Black.svg",
+          logoDark: "/xrilic-logos/white/Xrilic.W.verify.svg",
           description: "Run automated background checks and maintain compliance at scale.",
           features: ["Identity Verification", "Employment History", "UAN Checks", "Credit Analytics"],
           link: "/suites/verification",
@@ -1057,7 +1096,8 @@ across 5 integrated suites. Start in minutes.
         {
           id: "sales",
           title: "Sales Suite",
-          logo: "/logo/Xrilic CRM.svg",
+          logoLight: "/logo/Xrilic CRM.svg",
+          logoDark: "/xrilic-logos/white/Xrilic.W.crm.svg",
           description: "Build strong client partnerships with comprehensive company and contact management.",
           features: ["Pipeline Kanban", "Apollo.io Integration", "Contact Management", "List Segmentation"],
           link: "/suites/sales",
@@ -1069,7 +1109,8 @@ across 5 integrated suites. Start in minutes.
         {
           id: "finance",
           title: "Finance Suite",
-          logo: "/logo/Xrilic Books.svg",
+          logoLight: "/logo/Xrilic Books.svg",
+          logoDark: "/xrilic-logos/white/Xrilic.W.books.svg",
           description: "Control your entire financial operation with integrated invoicing and payroll.",
           features: ["Revenue Dashboard", "Auto Invoicing", "Payroll Processing", "Expense Tracking"],
           link: "/suites/finance",
@@ -1078,41 +1119,45 @@ across 5 integrated suites. Start in minutes.
           hoverBorder: "hover:border-blue-500/50",
           iconColor: "text-blue-500"
         },
-      ].map((suite, index) => (
-        <Link key={index} href={suite.link} className="group h-full">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            whileHover={{ scale: 1.02, y: -5 }}
-            className={`h-full p-8 bg-card rounded-xl border ${suite.borderColor} ${suite.hoverBorder} transition-all shadow-sm hover:shadow-lg flex flex-col`}
-          >
-            {/* LOGO REPLACEMENT FOR TITLE */}
-            <div className="h-10 w-fit mb-6">
-              <img 
-                src={suite.logo} 
-                alt={suite.title} 
-                className={`h-14 w-auto object-contain dark:invert`}
-              />
-            </div>
-            
-            <p className="text-muted-foreground mb-6 flex-grow">{suite.description}</p>
-            <ul className="space-y-3 mb-8">
-              {suite.features.map((feature, idx) => (
-                <li key={idx} className="flex items-center gap-3 text-sm text-muted-foreground">
-                  <CheckCircle2 className={`w-4 h-4 ${suite.iconColor} flex-shrink-0`} />
-                  <span>{feature}</span>
-                </li>
-              ))}
-            </ul>
-            <div className={`mt-auto flex items-center font-semibold ${suite.color} transition-colors`}>
-              Learn More
-              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-            </div>
-          </motion.div>
-        </Link>
-      ))}
+      ].map((suite, index) => {
+        // Correctly choose logo based on theme and mount status
+        const currentLogo = mounted && resolvedTheme === "dark" ? suite.logoDark : suite.logoLight;
+        
+        return (
+          <Link key={index} href={suite.link} className="group h-full">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ scale: 1.02, y: -5 }}
+              className={`h-full p-8 bg-card rounded-xl border ${suite.borderColor} ${suite.hoverBorder} transition-all shadow-sm hover:shadow-lg flex flex-col`}
+            >
+              <div className="h-10 w-fit mb-6">
+                <img 
+                  src={currentLogo} 
+                  alt={suite.title} 
+                  className="h-14 w-auto object-contain transition-opacity duration-300"
+                />
+              </div>
+              
+              <p className="text-muted-foreground mb-6 flex-grow">{suite.description}</p>
+              <ul className="space-y-3 mb-8">
+                {suite.features.map((feature, idx) => (
+                  <li key={idx} className="flex items-center gap-3 text-sm text-muted-foreground">
+                    <CheckCircle2 className={`w-4 h-4 ${suite.iconColor} flex-shrink-0`} />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className={`mt-auto flex items-center font-semibold ${suite.color} transition-colors`}>
+                Learn More
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </motion.div>
+          </Link>
+        )
+      })}
     </div>
   </div>
 </section>
@@ -1205,16 +1250,16 @@ function FeatureSection({
     <div className={`grid lg:grid-cols-2 gap-12 items-center ${reverse ? "lg:flex-row-reverse" : ""}`}>
       {/* TEXT SIDE */}
       <div className={reverse ? "lg:order-2" : ""}>
-         <div
+         {/* <div
           className={`inline-flex items-center gap-3 px-4 py-2 rounded-full bg-background border border-${badge.color}/20 mb-6 shadow-sm`}
         >
           <img 
             src={badge.logo} 
             alt="" 
-            className="w-fit h-12 object-contain dark:invert" 
+            className="w-fit h-12 object-contain " 
           />
-          {/* <span className="text-sm font-semibold tracking-wide uppercase">{badge.text}</span> */}
-        </div>
+          <span className="text-sm font-semibold tracking-wide uppercase">{badge.text}</span>
+        </div> */}
         <h3 className="text-3xl md:text-4xl font-bold mb-6">{title}</h3>
 
         <div className="space-y-6">

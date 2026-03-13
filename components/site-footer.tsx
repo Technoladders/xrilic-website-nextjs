@@ -15,8 +15,8 @@ export function SiteFooter() {
 
   // Determine logo source
   const logoSrc = mounted && resolvedTheme === "dark" 
-    ? "/xrilic-logos/white/xrilic.W.ai.svg" 
-    : "/logo/xrilic_ai.svg"
+    ? "/xrilic-logos/white/xrilic-logo.white.png" 
+    : "/xrilic-logos/black/xrilic-logo.black.png"
 
 
   return (

@@ -582,7 +582,7 @@ export function ActionModal({
    FIELD RENDERER
 ========================================================= */
 
-function FieldRenderer({
+function FieldRenderer({ 
   field,
   value,
   onChange,

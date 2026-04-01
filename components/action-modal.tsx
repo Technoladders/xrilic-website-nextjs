@@ -22,6 +22,8 @@ import { cn } from "@/lib/utils"
 import { DayPicker } from "react-day-picker"
 import "react-day-picker/dist/style.css"
 import { supabase } from "@/lib/supabase" 
+import PhoneInput from 'react-phone-number-input'
+import 'react-phone-number-input/style.css'
 
 /* =========================================================
    TYPES
@@ -30,7 +32,7 @@ import { supabase } from "@/lib/supabase"
 // Removed 'trial' as requested
 export type ActionType = "demo" | "sales"
 
-type FieldType = "text" | "email" | "select" | "textarea"
+type FieldType = "text" | "email" | "select" | "textarea" | "phone"
 
 interface FieldSchema {
   name: string
@@ -79,6 +81,7 @@ const ACTION_SCHEMA: Record<ActionType, ActionSchema> = {
           { name: "firstName", label: "First Name", type: "text", required: true },
           { name: "lastName", label: "Last Name", type: "text", required: true },
           { name: "email", label: "Work Email", type: "email", required: true },
+          { name: "phone", label: "Phone Number", type: "phone", required: true },
           { name: "company", label: "Company Name", type: "text", required: true },
           {
             name: "companySize",
@@ -111,6 +114,7 @@ const ACTION_SCHEMA: Record<ActionType, ActionSchema> = {
         fields: [
           { name: "name", label: "Full Name", type: "text", required: true },
           { name: "email", label: "Work Email", type: "email", required: true },
+          { name: "phone", label: "Phone Number", type: "phone", required: true },
           {
             name: "companySize",
             label: "Company Size",
@@ -344,6 +348,7 @@ export function ActionModal({
       const payload: any = {
         type: safeTab,
         email: formData.email, // Common field
+        phone: formData.phone,
         status: 'new',
         
         // Demo Specifics
@@ -573,6 +578,10 @@ export function ActionModal({
    FIELD RENDERER
 ========================================================= */
 
+/* =========================================================
+   FIELD RENDERER
+========================================================= */
+
 function FieldRenderer({
   field,
   value,
@@ -615,11 +624,29 @@ function FieldRenderer({
                 <option key={o} value={o}>{o}</option>
             ))}
             </select>
-            {/* Custom arrow for styling consistency */}
             <div className="absolute right-3 top-3.5 pointer-events-none opacity-50">
               <ChevronLeft className="w-4 h-4 -rotate-90" />
             </div>
         </div>
+      ) : field.type === "phone" ? ( 
+        <PhoneInput
+          international
+          defaultCountry="IN"
+          value={value || ""}
+          onChange={val => onChange(field.name, val)}
+          className={cn(
+            // 1. Outer Container Styles (Matches standard input)
+            "flex h-11 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background transition-colors",
+            "focus-within:outline-none focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2",
+            
+            // 2. Inner Input Resets (Removes the double border)
+            "[&_.PhoneInputInput]:!border-none [&_.PhoneInputInput]:!bg-transparent [&_.PhoneInputInput]:!outline-none [&_.PhoneInputInput]:!ring-0 [&_.PhoneInputInput]:!shadow-none",
+            "[&_.PhoneInputInput]:ml-2 [&_.PhoneInputInput]:text-foreground",
+            
+            // 3. Country Dropdown Resets
+            "[&_.PhoneInputCountrySelect]:!outline-none[&_.PhoneInputCountrySelect]:!ring-0"
+          )}
+        />
       ) : null}
     </div>
   )

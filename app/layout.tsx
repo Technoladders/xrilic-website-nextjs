@@ -6,6 +6,7 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { SiteHeader } from "@/components/site-header" // Import the new header
 import { SiteFooter } from "@/components/site-footer"
+import GoogleAnalytics from "@/components/GoogleAnalytics"
 
 import { Plus_Jakarta_Sans as V0_Font_Plus_Jakarta_Sans, IBM_Plex_Mono as V0_Font_IBM_Plex_Mono, Lora as V0_Font_Lora } from 'next/font/google'
 
@@ -53,6 +54,20 @@ export default function RootLayout({
             initApollo();
           `}
         </Script>
+
+          {/* ✅ GOOGLE TAG MANAGER / GA4 */}
+  <Script
+    src="https://www.googletagmanager.com/gtag/js?id=G-8TJNLNBP29"
+    strategy="afterInteractive"
+  />
+  <Script id="google-analytics" strategy="afterInteractive">
+    {`
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8TJNLNBP29');
+    `}
+  </Script>
       </head>
       <body className={`font-sans antialiased`}>
         <ThemeProvider
@@ -65,6 +80,8 @@ export default function RootLayout({
           <SiteHeader />
           {children}
            <SiteFooter />
+                   {/* Tracks client-side SPA route changes */}
+        <GoogleAnalytics />
         </ThemeProvider>
         <Analytics />
       </body>

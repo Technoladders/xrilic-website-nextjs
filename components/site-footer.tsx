@@ -117,12 +117,12 @@ export function SiteFooter() {
       </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-foreground transition-colors">
+                <Link href="/terms" className="hover:text-foreground transition-colors">
                   Terms
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-foreground transition-colors">
+                <Link href="/data-deletion" className="hover:text-foreground transition-colors">
                   Security
                 </Link>
               </li>

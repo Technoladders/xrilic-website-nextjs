@@ -181,7 +181,7 @@ export default function PrivacyPolicy() {
 
             <h3 className="text-lg font-bold text-foreground mt-6 mb-2">4.2 Your Control Over AI Data</h3>
             <ul className="list-disc pl-5 space-y-2">
-              <li>You may opt out of having your AI inputs used for model training by adjusting your account settings or contacting us at <a href="mailto:privacy@xrilic.ai" className="text-primary hover:underline">privacy@xrilic.ai</a>.</li>
+              <li>You may opt out of having your AI inputs used for model training by adjusting your account settings or contacting us at <a href="mailto:support@xrilic.ai" className="text-primary hover:underline">support@xrilic.ai</a>.</li>
               <li>You may request deletion of your stored AI inputs at any time (subject to technical and legal limitations).</li>
             </ul>
 
@@ -370,7 +370,7 @@ export default function PrivacyPolicy() {
               </tbody>
             </table>
 
-            <p>To exercise any of these rights, please submit a request to <a href="mailto:privacy@xrilic.ai" className="text-primary hover:underline">privacy@xrilic.ai</a>. We will respond within 30 days (or within the timeframe required by applicable law). We may need to verify your identity before processing your request.</p>
+            <p>To exercise any of these rights, please submit a request to <a href="mailto:support@xrilic.ai" className="text-primary hover:underline">support@xrilic.ai</a>. We will respond within 30 days (or within the timeframe required by applicable law). We may need to verify your identity before processing your request.</p>
 
             <h3 className="text-lg font-bold text-foreground mt-6 mb-2">Unsubscribing from Marketing</h3>
             <p>You may opt out of marketing emails at any time by clicking the "unsubscribe" link at the bottom of any marketing email, or by contacting us directly. You will still receive essential service-related communications.</p>
@@ -385,7 +385,7 @@ export default function PrivacyPolicy() {
           </h2>
           <div className="space-y-4 text-muted-foreground leading-relaxed">
             <p>xrilic.ai is not directed to children under the age of <strong className="text-foreground">13</strong> (or 16 in certain jurisdictions, including the EEA). We do not knowingly collect personal data from children. If we become aware that we have inadvertently collected data from a child without verifiable parental consent, we will take immediate steps to delete that information.</p>
-            <p>If you believe we have collected information from a child, please contact us at <a href="mailto:privacy@xrilic.ai" className="text-primary hover:underline">privacy@xrilic.ai</a>.</p>
+            <p>If you believe we have collected information from a child, please contact us at <a href="mailto:support@xrilic.ai" className="text-primary hover:underline">support@xrilic.ai</a>.</p>
           </div>
         </section>
 
@@ -441,7 +441,7 @@ export default function PrivacyPolicy() {
                 </tr>
                 <tr className="bg-muted/30">
                   <td className="p-3 border border-border font-bold text-foreground">Privacy inquiries</td>
-                  <td className="p-3 border border-border"><a href="mailto:privacy@xrilic.ai" className="text-primary hover:underline">privacy@xrilic.ai</a></td>
+                  <td className="p-3 border border-border"><a href="mailto:support@xrilic.ai" className="text-primary hover:underline">support@xrilic.ai</a></td>
                 </tr>
                 <tr>
                   <td className="p-3 border border-border font-bold text-foreground">Security concerns</td>

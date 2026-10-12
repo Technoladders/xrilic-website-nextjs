@@ -1,6 +1,5 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Analytics } from "@vercel/analytics/next"
 import Script from "next/script"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -48,8 +47,10 @@ export default function RootLayout({
           {`
             function initApollo(){
               var n=Math.random().toString(36).substring(7),o=document.createElement("script");
-              o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,
-              o.onload=function(){window.trackingFunctions.onLoad({appId:"66547c6f1cf7c001eba4b77e"})},
+              o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n;
+              o.async=true;
+              o.defer=true;
+              o.onload=function(){window.trackingFunctions?.onLoad?.({appId:"66547c6f1cf7c001eba4b77e"});};
             }
             initApollo();
           `}
@@ -83,7 +84,6 @@ export default function RootLayout({
                    {/* Tracks client-side SPA route changes */}
         <GoogleAnalytics />
         </ThemeProvider>
-        <Analytics />
       </body>
     </html>
   )

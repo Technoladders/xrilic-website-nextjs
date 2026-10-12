@@ -15,7 +15,7 @@ function GoogleAnalyticsInner() {
 
   useEffect(() => {
     const url = pathname + (searchParams?.toString() ? `?${searchParams}` : "");
-    window.gtag("config", "G-8TJNLNBP29", {
+    window.gtag?.("config", "G-8TJNLNBP29", {
       page_path: url,
     });
   }, [pathname, searchParams]);

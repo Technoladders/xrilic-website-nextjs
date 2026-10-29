@@ -4,8 +4,18 @@ import { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "Privacy Policy for xrilic.ai - AI-Powered SaaS Platform",
+  description:
+    "Privacy Policy for xrilic.ai - how Xrilic handles personal data, including Google, Microsoft and Meta (WhatsApp) user data.",
 }
+
+const LAST_UPDATED = "October 29, 2026"
+
+const sectionClass = "bg-card border border-border rounded-xl p-8 mb-6 shadow-sm scroll-mt-24"
+const headingClass = "text-xl font-bold text-foreground mb-5 pb-3 border-b border-border flex items-center gap-3"
+const subHeadingClass = "text-lg font-bold text-foreground mt-6 mb-2"
+const callout = "bg-primary/5 border-l-4 border-primary rounded-r-lg p-4 my-6 text-foreground"
+const th = "p-3 border border-border font-bold"
+const td = "p-3 border border-border"
 
 export default function PrivacyPolicy() {
   return (
@@ -13,28 +23,30 @@ export default function PrivacyPolicy() {
       {/* Header Section */}
       <section className="bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f3460] text-white pt-32 pb-16 px-6 text-center">
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-3">Privacy Policy</h1>
-        {/* <p className="text-[#a8b2d8] text-lg">xrilic.ai — AI-Powered SaaS Platform</p> */}
-        {/* <div className="inline-block bg-white/10 border border-white/20 text-slate-200 text-xs px-4 py-1.5 rounded-full mt-6 tracking-wide">
-          Effective Date: April 1, 2026 &nbsp;·&nbsp; Last Updated: April 1, 2026
-        </div> */}
+        <p className="text-[#a8b2d8] text-lg">Xrilic Technologies India Private Limited</p>
+        <div className="inline-block bg-white/10 border border-white/20 text-slate-200 text-xs px-4 py-1.5 rounded-full mt-6 tracking-wide">
+          Last Updated: {LAST_UPDATED}
+        </div>
       </section>
 
       <div className="max-w-6xl mx-auto px-6 py-12 -mt-8 relative z-10">
-        
         {/* TABLE OF CONTENTS */}
         <div className="bg-card border border-border rounded-xl p-8 mb-12 shadow-sm">
           <h2 className="text-sm font-bold uppercase tracking-wider text-muted-foreground mb-4">Table of Contents</h2>
           <ol className="list-decimal pl-5 space-y-1.5 text-primary font-medium">
-            <li><a href="#overview" className="hover:underline">Overview & Scope</a></li>
+            <li><a href="#overview" className="hover:underline">Overview &amp; Scope</a></li>
             <li><a href="#information-we-collect" className="hover:underline">Information We Collect</a></li>
             <li><a href="#how-we-use" className="hover:underline">How We Use Your Information</a></li>
-            <li><a href="#ai-data" className="hover:underline">AI Inputs & Generated Content</a></li>
-            <li><a href="#sharing" className="hover:underline">Sharing & Disclosure</a></li>
-            <li><a href="#cookies" className="hover:underline">Cookies & Tracking Technologies</a></li>
+            <li><a href="#google-data" className="hover:underline">Google User Data &amp; Limited Use</a></li>
+            <li><a href="#microsoft-data" className="hover:underline">Microsoft User Data</a></li>
+            <li><a href="#meta-data" className="hover:underline">Meta Platform Data (WhatsApp &amp; Facebook Login)</a></li>
+            <li><a href="#ai-data" className="hover:underline">AI Processing</a></li>
+            <li><a href="#sharing" className="hover:underline">Sharing &amp; Disclosure</a></li>
+            <li><a href="#cookies" className="hover:underline">Cookies &amp; Tracking Technologies</a></li>
             <li><a href="#retention" className="hover:underline">Data Retention</a></li>
             <li><a href="#security" className="hover:underline">Security</a></li>
-            <li><a href="#your-rights" className="hover:underline">Your Rights & Choices</a></li>
-            <li><a href="#children" className="hover:underline">Children's Privacy</a></li>
+            <li><a href="#your-rights" className="hover:underline">Your Rights &amp; Choices</a></li>
+            <li><a href="#children" className="hover:underline">Children&apos;s Privacy</a></li>
             <li><a href="#international" className="hover:underline">International Data Transfers</a></li>
             <li><a href="#changes" className="hover:underline">Changes to This Policy</a></li>
             <li><a href="#contact" className="hover:underline">Contact Us</a></li>
@@ -42,425 +54,458 @@ export default function PrivacyPolicy() {
         </div>
 
         {/* 1. OVERVIEW */}
-        <section id="overview" className="bg-card border border-border rounded-xl p-8 mb-6 shadow-sm scroll-mt-24">
-          <h2 className="text-xl font-bold text-foreground mb-5 pb-3 border-b border-border flex items-center gap-3">
-            {/* <span className="w-8 h-8 rounded bg-primary/10 text-primary flex items-center justify-center text-sm shrink-0">📋</span>  */}
-            1. Overview & Scope
-          </h2>
+        <section id="overview" className={sectionClass}>
+          <h2 className={headingClass}>1. Overview &amp; Scope</h2>
           <div className="space-y-4 text-muted-foreground leading-relaxed">
-            <p>Welcome to <strong className="text-foreground">xrilic.ai</strong> ("xrilic," "we," "our," or "us"). We are committed to protecting your privacy and handling your personal data with transparency, integrity, and respect.</p>
-            <p>This Privacy Policy explains how we collect, use, share, and protect information about you when you access or use our AI-powered SaaS platform, website at <strong className="text-foreground">xrilic.ai</strong>, and any associated services, features, or applications (collectively, the "Services").</p>
-            <p>By accessing or using our Services, you agree to the terms of this Privacy Policy. If you do not agree, please discontinue use of the Services.</p>
-            
-            <div className="bg-primary/5 border-l-4 border-primary rounded-r-lg p-4 my-6 text-foreground">
-              <strong className="text-primary">Who this applies to:</strong> This policy applies to all users of xrilic.ai — including registered account holders, trial users, and visitors to our website.
+            <p>
+              <strong className="text-foreground">XRILIC TECHNOLOGIES INDIA PRIVATE LIMITED</strong> (&ldquo;xrilic,&rdquo; &ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;) operates
+              the xrilic.ai website and the SourceXR / Xrilic business platform (the &ldquo;Services&rdquo;), which helps recruiting and sales teams run
+              email and WhatsApp outreach, track replies and manage hiring workflows. This Privacy Policy explains what personal data we handle, why, and the
+              choices you have.
+            </p>
+            <p>
+              Our customers are businesses. When a customer connects its own Gmail, Microsoft 365 / Outlook or WhatsApp Business account to the Services,
+              or sends outreach to candidates and prospects, the customer decides which contacts and messages are processed and we process that data on the customer&apos;s behalf
+              to provide the Services.
+            </p>
+            <div className={callout}>
+              <strong className="text-primary">Who this applies to:</strong> account holders and team members of our customers, trial users, visitors to xrilic.ai, and individuals
+              (for example job candidates) whose details a customer processes through the Services.
             </div>
           </div>
         </section>
 
         {/* 2. INFORMATION WE COLLECT */}
-        <section id="information-we-collect" className="bg-card border border-border rounded-xl p-8 mb-6 shadow-sm scroll-mt-24">
-          <h2 className="text-xl font-bold text-foreground mb-5 pb-3 border-b border-border flex items-center gap-3">
-            {/* <span className="w-8 h-8 rounded bg-primary/10 text-primary flex items-center justify-center text-sm shrink-0">📥</span>  */}
-            2. Information We Collect
-          </h2>
+        <section id="information-we-collect" className={sectionClass}>
+          <h2 className={headingClass}>2. Information We Collect</h2>
           <div className="space-y-4 text-muted-foreground leading-relaxed">
-            <p>We collect information in three ways: information you provide directly, information collected automatically, and information from third parties.</p>
-
-            <h3 className="text-lg font-bold text-foreground mt-6 mb-2">2.1 Information You Provide to Us</h3>
+            <h3 className={subHeadingClass}>2.1 Information You Provide to Us</h3>
             <ul className="list-disc pl-5 space-y-2">
-              <li><strong className="text-foreground">Account information:</strong> Your name, email address, username, and password when you register for an account.</li>
-              <li><strong className="text-foreground">Profile data:</strong> Any additional information you add to your profile, such as job title, company name, or profile photo.</li>
-              <li><strong className="text-foreground">Communications:</strong> Messages, feedback, or support requests you send to us directly.</li>
+              <li><strong className="text-foreground">Account information:</strong> name, work email address, organization, role and login credentials.</li>
+              <li><strong className="text-foreground">Customer content:</strong> candidate and prospect records, job details, email and WhatsApp templates, sequences, notes and files you upload.</li>
+              <li><strong className="text-foreground">Communications:</strong> messages, feedback or support requests you send to us.</li>
             </ul>
 
-            <h3 className="text-lg font-bold text-foreground mt-6 mb-2">2.2 Information Collected Automatically</h3>
+            <h3 className={subHeadingClass}>2.2 Information From Connected Accounts</h3>
+            <p>If you choose to connect a third-party account, we receive the data described in Sections 4 (Google), 5 (Microsoft) and 6 (Meta / WhatsApp). We never connect an account without your explicit action and consent.</p>
+
+            <h3 className={subHeadingClass}>2.3 Information Collected Automatically</h3>
             <ul className="list-disc pl-5 space-y-2">
-              <li><strong className="text-foreground">Usage data:</strong> Pages visited, features used, actions taken, session duration, click patterns, and navigation paths within the platform.</li>
-              <li><strong className="text-foreground">Device & technical data:</strong> IP address, browser type, operating system, device identifiers, screen resolution, and language settings.</li>
-              <li><strong className="text-foreground">Log data:</strong> Server logs including timestamps, error reports, and performance metrics.</li>
-              <li><strong className="text-foreground">Cookies & tracking technologies:</strong> See Section 6 for details.</li>
+              <li><strong className="text-foreground">Usage data:</strong> pages visited, features used and actions taken.</li>
+              <li><strong className="text-foreground">Device &amp; technical data:</strong> IP address, browser type, operating system and language settings.</li>
+              <li><strong className="text-foreground">Log data:</strong> timestamps, error reports and performance metrics.</li>
+              <li><strong className="text-foreground">Cookies &amp; similar technologies:</strong> see Section 9.</li>
             </ul>
 
-            <h3 className="text-lg font-bold text-foreground mt-6 mb-2">2.3 AI Inputs & Content</h3>
-            <ul className="list-disc pl-5 space-y-2">
-              <li><strong className="text-foreground">Prompts & queries:</strong> Text, instructions, or questions you submit to our AI models.</li>
-              <li><strong className="text-foreground">Uploaded files & content:</strong> Documents, images, datasets, or other files you upload to use with our Services.</li>
-              <li><strong className="text-foreground">AI-generated outputs:</strong> Content created by our AI models in response to your inputs.</li>
-            </ul>
-
-            <div className="bg-primary/5 border-l-4 border-primary rounded-r-lg p-4 my-6 text-foreground">
-              <strong className="text-primary">What we do NOT collect:</strong> We do not collect sensitive personal data such as racial or ethnic origin, biometric data, health information, financial account credentials, or government-issued ID numbers through our standard Services.
+            <div className={callout}>
+              <strong className="text-primary">What we do NOT collect:</strong> we do not intentionally collect sensitive personal data such as racial or ethnic origin, biometric data, health information or government ID numbers, and we do not ask you to submit them. We never receive your Google, Microsoft or Meta account passwords.
             </div>
           </div>
         </section>
 
         {/* 3. HOW WE USE */}
-        <section id="how-we-use" className="bg-card border border-border rounded-xl p-8 mb-6 shadow-sm scroll-mt-24">
-          <h2 className="text-xl font-bold text-foreground mb-5 pb-3 border-b border-border flex items-center gap-3">
-            {/* <span className="w-8 h-8 rounded bg-primary/10 text-primary flex items-center justify-center text-sm shrink-0">⚙️</span>  */}
-            3. How We Use Your Information
-          </h2>
+        <section id="how-we-use" className={sectionClass}>
+          <h2 className={headingClass}>3. How We Use Your Information</h2>
           <div className="space-y-4 text-muted-foreground leading-relaxed overflow-x-auto">
-            <p>We use the information we collect for the following purposes:</p>
-
+            <p>We use personal data only for the purposes below. Data received from Google, Microsoft or Meta is subject to the additional, stricter limits in Sections 4 to 6.</p>
             <table className="w-full text-left border-collapse mt-4 min-w-[600px]">
               <thead>
                 <tr className="bg-muted text-foreground">
-                  <th className="p-3 border border-border font-bold">Purpose</th>
-                  <th className="p-3 border border-border font-bold">Data Used</th>
-                  <th className="p-3 border border-border font-bold">Legal Basis (GDPR)</th>
+                  <th className={th}>Purpose</th>
+                  <th className={th}>Data Used</th>
+                  <th className={th}>Legal Basis (GDPR)</th>
                 </tr>
               </thead>
               <tbody className="text-sm">
                 <tr>
-                  <td className="p-3 border border-border">Provide and operate the Services</td>
-                  <td className="p-3 border border-border">Account info, usage data, AI inputs</td>
-                  <td className="p-3 border border-border">Contract performance</td>
+                  <td className={td}>Provide and operate the Services (sending outreach, tracking replies, managing workflows)</td>
+                  <td className={td}>Account info, customer content, connected-account data</td>
+                  <td className={td}>Contract performance</td>
                 </tr>
                 <tr className="bg-muted/30">
-                  <td className="p-3 border border-border">Authenticate and secure your account</td>
-                  <td className="p-3 border border-border">Name, email, IP address</td>
-                  <td className="p-3 border border-border">Contract performance / Legitimate interests</td>
+                  <td className={td}>Authenticate and secure your account</td>
+                  <td className={td}>Name, email, IP address</td>
+                  <td className={td}>Contract performance / Legitimate interests</td>
                 </tr>
                 <tr>
-                  <td className="p-3 border border-border">Improve and develop our AI models & platform</td>
-                  <td className="p-3 border border-border">Usage data, aggregated/anonymized AI inputs</td>
-                  <td className="p-3 border border-border">Legitimate interests</td>
+                  <td className={td}>Maintain and improve the functionality of the Services you use</td>
+                  <td className={td}>Usage data, technical data</td>
+                  <td className={td}>Legitimate interests</td>
                 </tr>
                 <tr className="bg-muted/30">
-                  <td className="p-3 border border-border">Personalize your experience</td>
-                  <td className="p-3 border border-border">Usage data, preferences</td>
-                  <td className="p-3 border border-border">Legitimate interests / Consent</td>
+                  <td className={td}>Send service-related communications</td>
+                  <td className={td}>Email address</td>
+                  <td className={td}>Contract performance</td>
                 </tr>
                 <tr>
-                  <td className="p-3 border border-border">Send service-related communications</td>
-                  <td className="p-3 border border-border">Email address</td>
-                  <td className="p-3 border border-border">Contract performance</td>
+                  <td className={td}>Send product updates and marketing (opt-in; website and account contacts only, never mailbox data)</td>
+                  <td className={td}>Email address</td>
+                  <td className={td}>Consent</td>
                 </tr>
                 <tr className="bg-muted/30">
-                  <td className="p-3 border border-border">Send product updates and marketing (opt-in)</td>
-                  <td className="p-3 border border-border">Email address</td>
-                  <td className="p-3 border border-border">Consent</td>
+                  <td className={td}>Analytics on our public website</td>
+                  <td className={td}>Usage data, technical data</td>
+                  <td className={td}>Legitimate interests / Consent</td>
                 </tr>
                 <tr>
-                  <td className="p-3 border border-border">Analytics and performance monitoring</td>
-                  <td className="p-3 border border-border">Usage data, technical data</td>
-                  <td className="p-3 border border-border">Legitimate interests</td>
-                </tr>
-                <tr className="bg-muted/30">
-                  <td className="p-3 border border-border">Comply with legal obligations</td>
-                  <td className="p-3 border border-border">All applicable data</td>
-                  <td className="p-3 border border-border">Legal obligation</td>
-                </tr>
-                <tr>
-                  <td className="p-3 border border-border">Prevent fraud and abuse</td>
-                  <td className="p-3 border border-border">Usage data, IP address</td>
-                  <td className="p-3 border border-border">Legitimate interests</td>
+                  <td className={td}>Comply with legal obligations and prevent fraud and abuse</td>
+                  <td className={td}>Account and usage data</td>
+                  <td className={td}>Legal obligation / Legitimate interests</td>
                 </tr>
               </tbody>
             </table>
           </div>
         </section>
 
-        {/* 4. AI DATA */}
-        <section id="ai-data" className="bg-card border border-border rounded-xl p-8 mb-6 shadow-sm scroll-mt-24">
-          <h2 className="text-xl font-bold text-foreground mb-5 pb-3 border-b border-border flex items-center gap-3">
-            {/* <span className="w-8 h-8 rounded bg-primary/10 text-primary flex items-center justify-center text-sm shrink-0">🤖</span>  */}
-            4. AI Inputs & Generated Content
-          </h2>
-          <div className="space-y-4 text-muted-foreground leading-relaxed">
-            <p>As an AI-powered platform, xrilic.ai processes inputs you submit to generate outputs. We want to be transparent about how this data is handled.</p>
-
-            <h3 className="text-lg font-bold text-foreground mt-6 mb-2">4.1 How We Process AI Inputs</h3>
-            <ul className="list-disc pl-5 space-y-2">
-              <li>Your inputs are processed by our AI systems to generate the responses or content you request.</li>
-              <li>Inputs may be temporarily stored to enable session continuity and to provide the service.</li>
-              <li>We may use aggregated and <strong className="text-foreground">de-identified</strong> inputs to train, fine-tune, or evaluate our AI models. We will not use your identifiable personal content to train AI models without your explicit consent.</li>
-            </ul>
-
-            <h3 className="text-lg font-bold text-foreground mt-6 mb-2">4.2 Your Control Over AI Data</h3>
-            <ul className="list-disc pl-5 space-y-2">
-              <li>You may opt out of having your AI inputs used for model training by adjusting your account settings or contacting us at <a href="mailto:support@xrilic.ai" className="text-primary hover:underline">support@xrilic.ai</a>.</li>
-              <li>You may request deletion of your stored AI inputs at any time (subject to technical and legal limitations).</li>
-            </ul>
-
-            <div className="bg-primary/5 border-l-4 border-primary rounded-r-lg p-4 my-6 text-foreground">
-              <strong className="text-primary">Important:</strong> Please do not submit sensitive personal information — such as passwords, financial data, medical records, or government IDs — as inputs to our AI. We are not responsible for sensitive information you voluntarily include in AI prompts.
+        {/* 4. GOOGLE */}
+        <section id="google-data" className={sectionClass}>
+          <h2 className={headingClass}>4. Google User Data &amp; Limited Use</h2>
+          <div className="space-y-4 text-muted-foreground leading-relaxed overflow-x-auto">
+            <div className={callout}>
+              <strong className="text-primary">Limited Use statement:</strong> xrilic&apos;s use and transfer to any other app of information received from Google APIs will adhere to the{" "}
+              <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noreferrer" className="text-primary hover:underline">Google API Services User Data Policy</a>,
+              including the Limited Use requirements. The use of raw or derived user data received from Workspace APIs will adhere to the Google User Data Policy, including the Limited Use requirements.
             </div>
 
-            <h3 className="text-lg font-bold text-foreground mt-6 mb-2">4.3 AI-Generated Content</h3>
-            <p>Outputs generated by our AI are provided "as is." xrilic.ai does not claim ownership of AI-generated content created using your inputs. However, you are responsible for ensuring that the use of such content complies with applicable laws and third-party rights.</p>
+            <h3 className={subHeadingClass}>4.1 What we access, and why</h3>
+            <p>When a user connects a Gmail account to send and track outreach, xrilic asks for the following Google permissions. Users may decline either one on the Google consent screen.</p>
+            <table className="w-full text-left border-collapse mt-4 min-w-[600px]">
+              <thead>
+                <tr className="bg-muted text-foreground">
+                  <th className={th}>Scope</th>
+                  <th className={th}>What we use it for</th>
+                </tr>
+              </thead>
+              <tbody className="text-sm">
+                <tr>
+                  <td className={td}><code>openid</code>, <code>email</code>, <code>profile</code></td>
+                  <td className={td}>Identify which Google account was connected (email address and display name) so that outreach is sent from, and attributed to, the right mailbox.</td>
+                </tr>
+                <tr className="bg-muted/30">
+                  <td className={td}><code>https://www.googleapis.com/auth/gmail.send</code></td>
+                  <td className={td}>Send the outreach emails the user composes or schedules in xrilic, from the user&apos;s own Gmail address.</td>
+                </tr>
+                <tr>
+                  <td className={td}><code>https://www.googleapis.com/auth/gmail.readonly</code></td>
+                  <td className={td}>Read incoming messages in order to detect replies, out-of-office responses and bounces to outreach sent through xrilic, so that sequences stop automatically and the user can read and answer replies inside xrilic. We do not use this scope to modify, delete, archive or label any message.</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h3 className={subHeadingClass}>4.2 How we use Google user data</h3>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>We use Google user data <strong className="text-foreground">only</strong> to provide and improve the user-facing email-sending and reply-tracking features described above.</li>
+              <li>We do <strong className="text-foreground">not</strong> use Google user data for advertising, including retargeting, personalized or interest-based advertising.</li>
+              <li>We do <strong className="text-foreground">not</strong> sell Google user data or transfer it to data brokers, information resellers or advertisers.</li>
+              <li>We do <strong className="text-foreground">not</strong> use Google user data to create, train or improve any generalized or foundational AI/ML model, and we do not permit any third party to do so (see Section 7).</li>
+              <li>We do <strong className="text-foreground">not</strong> allow humans to read Google user data unless (a) we have the user&apos;s affirmative agreement for specific messages, (b) it is necessary for security purposes such as investigating abuse, (c) it is necessary to comply with applicable law, or (d) the data is aggregated and anonymized and used for internal operations.</li>
+              <li>We do <strong className="text-foreground">not</strong> transfer Google user data to others except as necessary to provide or improve these user-facing features, to comply with applicable law, or as part of a merger, acquisition or sale of assets with notice to users.</li>
+            </ul>
+
+            <h3 className={subHeadingClass}>4.3 Storage, protection and removal</h3>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>OAuth access and refresh tokens are stored encrypted, are used only by our server-side functions, and are never exposed to the browser.</li>
+              <li>We store the content of replies and bounces to outreach (such as sender, subject and body) so users can see them in the product. Messages are read from Gmail through the Gmail API; we do not copy a user&apos;s mailbox.</li>
+              <li>A user can disconnect their Gmail account at any time in xrilic, which revokes our Google grant and deletes the stored tokens. Users can also remove xrilic&apos;s access directly at{" "}
+                <a href="https://myaccount.google.com/permissions" target="_blank" rel="noreferrer" className="text-primary hover:underline">myaccount.google.com/permissions</a>.
+              </li>
+              <li>To delete the data we hold, follow our <a href="/data-deletion" className="text-primary hover:underline">Data Deletion Instructions</a>.</li>
+            </ul>
           </div>
         </section>
 
-        {/* 5. SHARING */}
-        <section id="sharing" className="bg-card border border-border rounded-xl p-8 mb-6 shadow-sm scroll-mt-24">
-          <h2 className="text-xl font-bold text-foreground mb-5 pb-3 border-b border-border flex items-center gap-3">
-            {/* <span className="w-8 h-8 rounded bg-primary/10 text-primary flex items-center justify-center text-sm shrink-0">🔗</span>  */}
-            5. Sharing & Disclosure
-          </h2>
-          <div className="space-y-4 text-muted-foreground leading-relaxed">
-            <p>We do not sell your personal information. We may share your data only in the following circumstances:</p>
+        {/* 5. MICROSOFT */}
+        <section id="microsoft-data" className={sectionClass}>
+          <h2 className={headingClass}>5. Microsoft User Data</h2>
+          <div className="space-y-4 text-muted-foreground leading-relaxed overflow-x-auto">
+            <p>When a user connects a Microsoft 365 / Outlook.com mailbox, xrilic uses the Microsoft identity platform (Microsoft Entra ID) and Microsoft Graph with the delegated permissions below. Access is limited to what the signed-in user (and, where required, their tenant administrator) consents to.</p>
+            <table className="w-full text-left border-collapse mt-4 min-w-[600px]">
+              <thead>
+                <tr className="bg-muted text-foreground">
+                  <th className={th}>Permission</th>
+                  <th className={th}>What we use it for</th>
+                </tr>
+              </thead>
+              <tbody className="text-sm">
+                <tr>
+                  <td className={td}><code>openid</code>, <code>profile</code>, <code>User.Read</code></td>
+                  <td className={td}>Identify the connected account (email address and display name).</td>
+                </tr>
+                <tr className="bg-muted/30">
+                  <td className={td}><code>offline_access</code></td>
+                  <td className={td}>Keep the connection active with a refresh token so scheduled outreach can be sent when the user is not signed in.</td>
+                </tr>
+                <tr>
+                  <td className={td}><code>Mail.Send</code></td>
+                  <td className={td}>Send outreach emails from the user&apos;s own mailbox.</td>
+                </tr>
+                <tr className="bg-muted/30">
+                  <td className={td}><code>Mail.ReadWrite</code></td>
+                  <td className={td}>Read replies and bounces to outreach, and create the draft that is then sent or used to reply, so sent messages have stable identifiers. We do not delete, move or alter the user&apos;s other mail.</td>
+                </tr>
+                <tr>
+                  <td className={td}><code>MailboxSettings.Read</code></td>
+                  <td className={td}>Read the mailbox time zone and working-hours settings so scheduled sends respect the user&apos;s local time.</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>Microsoft user data is used only to provide the email-sending and reply-tracking features of the Services. We do not sell it, use it for advertising, or use it to train AI/ML models, and the commitments in Section 4.2 apply equally to Microsoft data. Users can disconnect a mailbox in xrilic, or remove xrilic&apos;s access at{" "}
+              <a href="https://myapps.microsoft.com" target="_blank" rel="noreferrer" className="text-primary hover:underline">myapps.microsoft.com</a>.
+            </p>
+          </div>
+        </section>
 
-            <h3 className="text-lg font-bold text-foreground mt-6 mb-2">5.1 Service Providers</h3>
-            <p>We work with trusted third-party vendors to help us operate our platform. These include:</p>
+        {/* 6. META */}
+        <section id="meta-data" className={sectionClass}>
+          <h2 className={headingClass}>6. Meta Platform Data (WhatsApp &amp; Facebook Login)</h2>
+          <div className="space-y-4 text-muted-foreground leading-relaxed">
+            <p>
+              xrilic is a Meta Tech Provider for the WhatsApp Business Platform. Our business customers use <strong className="text-foreground">Facebook Login for Business</strong> with
+              the Meta SDK and <strong className="text-foreground">Embedded Signup</strong> to connect their own WhatsApp Business Account (WABA) and phone number to xrilic, so that they can message their own contacts.
+              Meta, not xrilic, operates Facebook Login and WhatsApp; their terms and privacy notices also apply.
+            </p>
+
+            <h3 className={subHeadingClass}>6.1 Data we receive from Meta</h3>
+            <ul className="list-disc pl-5 space-y-2">
+              <li><strong className="text-foreground">Business account data:</strong> WABA ID, phone number IDs and display numbers, display name, quality rating, messaging limits, and message-template names and approval status.</li>
+              <li><strong className="text-foreground">Access tokens:</strong> the business-integration token issued when the customer completes Embedded Signup. It is stored encrypted and used only on the server.</li>
+              <li><strong className="text-foreground">Message data:</strong> content and delivery/read statuses of messages sent and received on the customer&apos;s WhatsApp number, with the sender&apos;s phone number and profile name, delivered to us through Meta webhooks.</li>
+              <li><strong className="text-foreground">Consent records:</strong> opt-in and opt-out status for each contact.</li>
+            </ul>
+            <p>We do not receive the customer&apos;s Facebook password, personal Facebook profile data or friends list.</p>
+
+            <h3 className={subHeadingClass}>6.2 How we use it</h3>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>To send approved message templates and in-window replies on the customer&apos;s behalf, show conversations in a shared inbox, display delivery and read status, and pause an automated sequence when a contact replies.</li>
+              <li>To honor opt-outs (for example &ldquo;STOP&rdquo;) by suppressing the number from further business-initiated messages.</li>
+              <li>To show the customer its own number, quality rating and approved templates in settings.</li>
+            </ul>
+            <p>We do not sell Meta Platform Data, use it for advertising, or use it to build profiles for any purpose other than providing the Services to the customer that owns the WhatsApp account. We follow the Meta Platform Terms and the WhatsApp Business Terms and Messaging Guidelines. Customers are responsible for obtaining valid opt-in from their contacts.</p>
+
+            <h3 className={subHeadingClass}>6.3 Disconnecting and deletion</h3>
+            <p>A customer can disconnect a WhatsApp number in xrilic; we then unsubscribe from the account&apos;s webhooks and delete the stored access token. You can also remove xrilic from your Facebook account at <em>Settings &amp; privacy &rarr; Settings &rarr; Business integrations</em>. For removal of stored message data see our{" "}
+              <a href="/data-deletion" className="text-primary hover:underline">Data Deletion Instructions</a>. Message copies that exist inside WhatsApp or on Meta&apos;s servers are governed by Meta&apos;s policies.
+            </p>
+          </div>
+        </section>
+
+        {/* 7. AI */}
+        <section id="ai-data" className={sectionClass}>
+          <h2 className={headingClass}>7. AI Processing</h2>
+          <div className="space-y-4 text-muted-foreground leading-relaxed overflow-x-auto">
+            <p>Some features of the Services use third-party AI models, for example to classify a reply (interested / not interested / out of office / referral) or to draft a suggested message that a person reviews before sending. AI output never sends a message by itself.</p>
+
+            <h3 className={subHeadingClass}>7.1 AI providers</h3>
+            <table className="w-full text-left border-collapse mt-4 min-w-[600px]">
+              <thead>
+                <tr className="bg-muted text-foreground">
+                  <th className={th}>Provider</th>
+                  <th className={th}>Used for</th>
+                  <th className={th}>Training on our data</th>
+                </tr>
+              </thead>
+              <tbody className="text-sm">
+                <tr>
+                  <td className={td}>OpenAI (OpenAI API, business/API terms)</td>
+                  <td className={td}>Reply classification and message drafting; the minimum text needed for the request is sent</td>
+                  <td className={td}>No. Under OpenAI&apos;s API terms, data sent through the API is not used to train OpenAI models.</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h3 className={subHeadingClass}>7.2 Our commitments</h3>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>We do <strong className="text-foreground">not</strong> use Google user data, Microsoft user data or Meta Platform Data to train, fine-tune or improve any generalized or foundational AI/ML model, ours or anyone else&apos;s.</li>
+              <li>We only send data to AI providers that contractually do not train their models on API data, and only as needed to deliver the feature the user invoked.</li>
+              <li>We do not use customer content, including messages, in a way that identifies individuals to improve our own models.</li>
+              <li>If this list of AI providers changes, we will update this page before the change takes effect.</li>
+            </ul>
+            <div className={callout}>
+              <strong className="text-primary">Please note:</strong> do not enter passwords, financial data, medical records or government IDs into AI features. AI-generated content can be inaccurate; review it before use.
+            </div>
+          </div>
+        </section>
+
+        {/* 8. SHARING */}
+        <section id="sharing" className={sectionClass}>
+          <h2 className={headingClass}>8. Sharing &amp; Disclosure</h2>
+          <div className="space-y-4 text-muted-foreground leading-relaxed">
+            <p>We do not sell personal information. We share data only in the following circumstances:</p>
+
+            <h3 className={subHeadingClass}>8.1 Service Providers</h3>
+            <p>We use trusted processors that act on our instructions and are contractually bound to protect data:</p>
             <ul className="space-y-3 mt-3">
-              <li><span className="inline-block bg-primary/10 text-primary text-xs font-semibold px-2.5 py-1 rounded-full mr-2 mb-1">Cloud Hosting</span> Infrastructure and storage providers (e.g., AWS, Google Cloud, Azure)</li>
-              <li><span className="inline-block bg-primary/10 text-primary text-xs font-semibold px-2.5 py-1 rounded-full mr-2 mb-1">Analytics</span> Usage analytics tools to improve the platform</li>
-              <li><span className="inline-block bg-primary/10 text-primary text-xs font-semibold px-2.5 py-1 rounded-full mr-2 mb-1">Email</span> Email delivery services for transactional communications</li>
-              <li><span className="inline-block bg-primary/10 text-primary text-xs font-semibold px-2.5 py-1 rounded-full mr-2 mb-1">Security</span> Fraud detection and security monitoring services</li>
-              <li><span className="inline-block bg-primary/10 text-primary text-xs font-semibold px-2.5 py-1 rounded-full mr-2 mb-1">Support</span> Customer support platforms</li>
+              <li><span className="inline-block bg-primary/10 text-primary text-xs font-semibold px-2.5 py-1 rounded-full mr-2 mb-1">Database &amp; Hosting</span> Supabase (database, authentication, serverless functions) and our cloud infrastructure providers</li>
+              <li><span className="inline-block bg-primary/10 text-primary text-xs font-semibold px-2.5 py-1 rounded-full mr-2 mb-1">AI</span> OpenAI, as described in Section 7</li>
+              <li><span className="inline-block bg-primary/10 text-primary text-xs font-semibold px-2.5 py-1 rounded-full mr-2 mb-1">Email</span> Transactional email delivery for account and service messages</li>
+              <li><span className="inline-block bg-primary/10 text-primary text-xs font-semibold px-2.5 py-1 rounded-full mr-2 mb-1">Analytics</span> Google Analytics on our public website only (never fed with mailbox or WhatsApp content)</li>
             </ul>
-            <p>All service providers are contractually required to protect your data and may only use it to perform services on our behalf.</p>
 
-            <h3 className="text-lg font-bold text-foreground mt-6 mb-2">5.2 Business Transfers</h3>
-            <p>In the event of a merger, acquisition, restructuring, or sale of assets, your information may be transferred to the acquiring entity. We will notify you via email or a prominent notice on our website prior to your data becoming subject to a different privacy policy.</p>
+            <h3 className={subHeadingClass}>8.2 Business Transfers</h3>
+            <p>If xrilic is involved in a merger, acquisition or sale of assets, personal data may be transferred to the successor, which must honor this policy. We will notify you before data becomes subject to a different privacy policy.</p>
 
-            <h3 className="text-lg font-bold text-foreground mt-6 mb-2">5.3 Legal Requirements</h3>
-            <p>We may disclose your information if required to do so by law or in response to valid legal requests from public authorities (e.g., courts, regulatory agencies), to protect our legal rights, or to prevent fraud or security threats.</p>
+            <h3 className={subHeadingClass}>8.3 Legal Requirements</h3>
+            <p>We may disclose information when required by law or valid legal process, or to protect rights, safety and security. We review requests for legality and disclose only the minimum required.</p>
 
-            <h3 className="text-lg font-bold text-foreground mt-6 mb-2">5.4 With Your Consent</h3>
-            <p>We may share your information with third parties when you have given us your explicit consent to do so.</p>
+            <h3 className={subHeadingClass}>8.4 With Your Consent</h3>
+            <p>We share information with third parties when you have given your explicit consent.</p>
           </div>
         </section>
 
-        {/* 6. COOKIES */}
-        <section id="cookies" className="bg-card border border-border rounded-xl p-8 mb-6 shadow-sm scroll-mt-24">
-          <h2 className="text-xl font-bold text-foreground mb-5 pb-3 border-b border-border flex items-center gap-3">
-            {/* <span className="w-8 h-8 rounded bg-primary/10 text-primary flex items-center justify-center text-sm shrink-0">🍪</span>  */}
-            6. Cookies & Tracking Technologies
-          </h2>
+        {/* 9. COOKIES */}
+        <section id="cookies" className={sectionClass}>
+          <h2 className={headingClass}>9. Cookies &amp; Tracking Technologies</h2>
           <div className="space-y-4 text-muted-foreground leading-relaxed overflow-x-auto">
-            <p>We use cookies and similar technologies (pixel tags, local storage, etc.) to operate our Services, understand how users interact with our platform, and improve your experience.</p>
-
+            <p>We use cookies and similar technologies on our website and web application to operate the Services and understand how our public site is used.</p>
             <table className="w-full text-left border-collapse mt-4 min-w-[600px]">
               <thead>
                 <tr className="bg-muted text-foreground">
-                  <th className="p-3 border border-border font-bold">Cookie Type</th>
-                  <th className="p-3 border border-border font-bold">Purpose</th>
-                  <th className="p-3 border border-border font-bold">Can You Opt Out?</th>
+                  <th className={th}>Cookie Type</th>
+                  <th className={th}>Purpose</th>
+                  <th className={th}>Can You Opt Out?</th>
                 </tr>
               </thead>
               <tbody className="text-sm">
                 <tr>
-                  <td className="p-3 border border-border font-semibold text-foreground">Essential</td>
-                  <td className="p-3 border border-border">Required for the platform to function (e.g., login sessions, security tokens)</td>
-                  <td className="p-3 border border-border">No — required for the service</td>
+                  <td className={`${td} font-semibold text-foreground`}>Essential</td>
+                  <td className={td}>Login sessions and security tokens</td>
+                  <td className={td}>No, required for the service</td>
                 </tr>
                 <tr className="bg-muted/30">
-                  <td className="p-3 border border-border font-semibold text-foreground">Analytics</td>
-                  <td className="p-3 border border-border">Track usage patterns to improve the platform (e.g., page views, feature usage)</td>
-                  <td className="p-3 border border-border">Yes — via cookie settings</td>
+                  <td className={`${td} font-semibold text-foreground`}>Analytics</td>
+                  <td className={td}>Page views and feature usage on our website (Google Analytics)</td>
+                  <td className={td}>Yes, via browser settings or the Google Analytics opt-out add-on</td>
                 </tr>
                 <tr>
-                  <td className="p-3 border border-border font-semibold text-foreground">Preferences</td>
-                  <td className="p-3 border border-border">Remember your settings and customizations</td>
-                  <td className="p-3 border border-border">Yes — via cookie settings</td>
-                </tr>
-                <tr className="bg-muted/30">
-                  <td className="p-3 border border-border font-semibold text-foreground">Marketing</td>
-                  <td className="p-3 border border-border">Measure effectiveness of campaigns (only if opted in)</td>
-                  <td className="p-3 border border-border">Yes — via cookie settings</td>
+                  <td className={`${td} font-semibold text-foreground`}>Preferences</td>
+                  <td className={td}>Remember settings such as theme</td>
+                  <td className={td}>Yes, via browser settings</td>
                 </tr>
               </tbody>
             </table>
-
-            <p>You can manage your cookie preferences through our cookie consent banner or your browser settings. Note that disabling essential cookies may impact the functionality of the Services.</p>
+            <p>Disabling essential cookies may affect how the Services work. Email open and click tracking, if enabled by a customer for its outreach, is described to the customer in the product and applies to messages that customer sends.</p>
           </div>
         </section>
 
-        {/* 7. RETENTION */}
-        <section id="retention" className="bg-card border border-border rounded-xl p-8 mb-6 shadow-sm scroll-mt-24">
-          <h2 className="text-xl font-bold text-foreground mb-5 pb-3 border-b border-border flex items-center gap-3">
-            {/* <span className="w-8 h-8 rounded bg-primary/10 text-primary flex items-center justify-center text-sm shrink-0">🗂️</span>  */}
-            7. Data Retention
-          </h2>
+        {/* 10. RETENTION */}
+        <section id="retention" className={sectionClass}>
+          <h2 className={headingClass}>10. Data Retention</h2>
           <div className="space-y-4 text-muted-foreground leading-relaxed">
-            <p>We retain personal data only for as long as necessary to fulfil the purposes described in this policy, unless a longer retention period is required by law.</p>
+            <p>We keep personal data only as long as needed for the purposes in this policy, unless the law requires longer.</p>
             <ul className="list-disc pl-5 space-y-2">
-              <li><strong className="text-foreground">Account data:</strong> Retained for the duration of your account and for up to 90 days following account deletion, unless a longer period is required by law.</li>
-              <li><strong className="text-foreground">Usage & analytics data:</strong> Retained in identifiable form for up to 24 months; may be retained in aggregated/anonymized form indefinitely.</li>
-              <li><strong className="text-foreground">AI inputs & outputs:</strong> Retained for a limited period to enable session continuity and platform functionality. You may request earlier deletion at any time.</li>
-              <li><strong className="text-foreground">Support communications:</strong> Retained for up to 3 years to assist with ongoing support and legal compliance.</li>
+              <li><strong className="text-foreground">Account data:</strong> for the life of the account and up to 90 days after deletion.</li>
+              <li><strong className="text-foreground">Connected-account tokens (Google, Microsoft, Meta):</strong> deleted when the account is disconnected or the customer account is deleted.</li>
+              <li><strong className="text-foreground">Email and WhatsApp message data:</strong> kept for the life of the customer account so history remains available, then deleted within 60 days of a verified deletion request or account closure, or earlier on request.</li>
+              <li><strong className="text-foreground">Usage &amp; analytics data:</strong> up to 24 months in identifiable form; aggregated or anonymized data may be kept longer.</li>
+              <li><strong className="text-foreground">Support communications:</strong> up to 3 years.</li>
             </ul>
-            <p>When data is no longer required, we securely delete or anonymize it.</p>
+            <p>When data is no longer needed we delete or anonymize it, including from backups in the normal backup cycle.</p>
           </div>
         </section>
 
-        {/* 8. SECURITY */}
-        <section id="security" className="bg-card border border-border rounded-xl p-8 mb-6 shadow-sm scroll-mt-24">
-          <h2 className="text-xl font-bold text-foreground mb-5 pb-3 border-b border-border flex items-center gap-3">
-            {/* <span className="w-8 h-8 rounded bg-primary/10 text-primary flex items-center justify-center text-sm shrink-0">🔒</span>  */}
-            8. Security
-          </h2>
+        {/* 11. SECURITY */}
+        <section id="security" className={sectionClass}>
+          <h2 className={headingClass}>11. Security</h2>
           <div className="space-y-4 text-muted-foreground leading-relaxed">
-            <p>We take the security of your information seriously and implement industry-standard technical and organizational measures to protect it, including:</p>
+            <p>We protect data with technical and organizational measures, including:</p>
             <ul className="list-disc pl-5 space-y-2">
-              <li>Encryption of data in transit using TLS/SSL</li>
-              <li>Encryption of sensitive data at rest</li>
-              <li>Access controls and role-based permissions to limit who can access your data</li>
-              <li>Regular security assessments and penetration testing</li>
-              <li>Incident response procedures to address potential data breaches</li>
+              <li>Encryption in transit (TLS) and encryption at rest for stored OAuth and API tokens</li>
+              <li>Server-side-only use of provider tokens; they are never sent to the browser</li>
+              <li>Per-organization data isolation with database row-level security and role-based access</li>
+              <li>Webhook signature verification and PKCE for OAuth sign-in</li>
+              <li>Incident response procedures, with notification of affected customers and authorities as required by law</li>
             </ul>
-            <div className="bg-primary/5 border-l-4 border-primary rounded-r-lg p-4 my-6 text-foreground">
-              Despite our efforts, no method of transmission over the internet or electronic storage is 100% secure. If you suspect unauthorized access to your account, please contact us immediately at <a href="mailto:security@xrilic.ai" className="text-primary hover:underline">security@xrilic.ai</a>.
+            <div className={callout}>
+              No method of transmission or storage is 100% secure. If you suspect unauthorized access, contact <a href="mailto:support@xrilic.ai" className="text-primary hover:underline">support@xrilic.ai</a> immediately.
             </div>
           </div>
         </section>
 
-        {/* 9. YOUR RIGHTS */}
-        <section id="your-rights" className="bg-card border border-border rounded-xl p-8 mb-6 shadow-sm scroll-mt-24">
-          <h2 className="text-xl font-bold text-foreground mb-5 pb-3 border-b border-border flex items-center gap-3">
-            {/* <span className="w-8 h-8 rounded bg-primary/10 text-primary flex items-center justify-center text-sm shrink-0">⚖️</span>  */}
-            9. Your Rights & Choices
-          </h2>
+        {/* 12. YOUR RIGHTS */}
+        <section id="your-rights" className={sectionClass}>
+          <h2 className={headingClass}>12. Your Rights &amp; Choices</h2>
           <div className="space-y-4 text-muted-foreground leading-relaxed overflow-x-auto">
-            <p>Depending on your location, you may have the following rights regarding your personal data:</p>
-
+            <p>Depending on where you live, including under the GDPR, the CCPA/CPRA and India&apos;s Digital Personal Data Protection Act, you may have the right to:</p>
             <table className="w-full text-left border-collapse mt-4 min-w-[600px]">
               <thead>
                 <tr className="bg-muted text-foreground">
-                  <th className="p-3 border border-border font-bold">Right</th>
-                  <th className="p-3 border border-border font-bold">Description</th>
-                  <th className="p-3 border border-border font-bold">Applies Under</th>
+                  <th className={th}>Right</th>
+                  <th className={th}>Description</th>
                 </tr>
               </thead>
               <tbody className="text-sm">
-                <tr>
-                  <td className="p-3 border border-border font-semibold text-foreground">Access</td>
-                  <td className="p-3 border border-border">Request a copy of the personal data we hold about you</td>
-                  <td className="p-3 border border-border">GDPR, CCPA</td>
-                </tr>
-                <tr className="bg-muted/30">
-                  <td className="p-3 border border-border font-semibold text-foreground">Rectification</td>
-                  <td className="p-3 border border-border">Request correction of inaccurate or incomplete data</td>
-                  <td className="p-3 border border-border">GDPR</td>
-                </tr>
-                <tr>
-                  <td className="p-3 border border-border font-semibold text-foreground">Erasure</td>
-                  <td className="p-3 border border-border">Request deletion of your personal data ("right to be forgotten")</td>
-                  <td className="p-3 border border-border">GDPR, CCPA</td>
-                </tr>
-                <tr className="bg-muted/30">
-                  <td className="p-3 border border-border font-semibold text-foreground">Portability</td>
-                  <td className="p-3 border border-border">Receive your data in a structured, machine-readable format</td>
-                  <td className="p-3 border border-border">GDPR</td>
-                </tr>
-                <tr>
-                  <td className="p-3 border border-border font-semibold text-foreground">Restriction</td>
-                  <td className="p-3 border border-border">Request that we restrict processing of your data in certain circumstances</td>
-                  <td className="p-3 border border-border">GDPR</td>
-                </tr>
-                <tr className="bg-muted/30">
-                  <td className="p-3 border border-border font-semibold text-foreground">Objection</td>
-                  <td className="p-3 border border-border">Object to processing based on legitimate interests or for direct marketing</td>
-                  <td className="p-3 border border-border">GDPR</td>
-                </tr>
-                <tr>
-                  <td className="p-3 border border-border font-semibold text-foreground">Opt-out of sale</td>
-                  <td className="p-3 border border-border">We do not sell personal data. No opt-out required.</td>
-                  <td className="p-3 border border-border">CCPA</td>
-                </tr>
-                <tr className="bg-muted/30">
-                  <td className="p-3 border border-border font-semibold text-foreground">Withdraw consent</td>
-                  <td className="p-3 border border-border">Withdraw consent at any time where processing is consent-based</td>
-                  <td className="p-3 border border-border">GDPR, CCPA</td>
-                </tr>
+                <tr><td className={`${td} font-semibold text-foreground`}>Access</td><td className={td}>Request a copy of the personal data we hold about you</td></tr>
+                <tr className="bg-muted/30"><td className={`${td} font-semibold text-foreground`}>Correction</td><td className={td}>Correct inaccurate or incomplete data</td></tr>
+                <tr><td className={`${td} font-semibold text-foreground`}>Deletion</td><td className={td}>Request deletion of your data (see <a href="/data-deletion" className="text-primary hover:underline">Data Deletion Instructions</a>)</td></tr>
+                <tr className="bg-muted/30"><td className={`${td} font-semibold text-foreground`}>Portability</td><td className={td}>Receive your data in a structured, machine-readable format</td></tr>
+                <tr><td className={`${td} font-semibold text-foreground`}>Restriction / Objection</td><td className={td}>Restrict or object to certain processing, including direct marketing</td></tr>
+                <tr className="bg-muted/30"><td className={`${td} font-semibold text-foreground`}>Withdraw consent</td><td className={td}>Withdraw consent at any time, including by disconnecting a Google, Microsoft or WhatsApp account</td></tr>
+                <tr><td className={`${td} font-semibold text-foreground`}>No sale</td><td className={td}>We do not sell personal data</td></tr>
               </tbody>
             </table>
-
-            <p>To exercise any of these rights, please submit a request to <a href="mailto:support@xrilic.ai" className="text-primary hover:underline">support@xrilic.ai</a>. We will respond within 30 days (or within the timeframe required by applicable law). We may need to verify your identity before processing your request.</p>
-
-            <h3 className="text-lg font-bold text-foreground mt-6 mb-2">Unsubscribing from Marketing</h3>
-            <p>You may opt out of marketing emails at any time by clicking the "unsubscribe" link at the bottom of any marketing email, or by contacting us directly. You will still receive essential service-related communications.</p>
+            <p>To exercise a right, email <a href="mailto:support@xrilic.ai" className="text-primary hover:underline">support@xrilic.ai</a>. We respond within 30 days or the period required by law, and may need to verify your identity. If a customer sent you a message and you contact us, we may direct your request to that customer, who controls the data.</p>
+            <p>You can opt out of marketing emails at any time using the unsubscribe link or by contacting us; service messages will continue.</p>
           </div>
         </section>
 
-        {/* 10. CHILDREN */}
-        <section id="children" className="bg-card border border-border rounded-xl p-8 mb-6 shadow-sm scroll-mt-24">
-          <h2 className="text-xl font-bold text-foreground mb-5 pb-3 border-b border-border flex items-center gap-3">
-            {/* <span className="w-8 h-8 rounded bg-primary/10 text-primary flex items-center justify-center text-sm shrink-0">👶</span>  */}
-            10. Children's Privacy
-          </h2>
+        {/* 13. CHILDREN */}
+        <section id="children" className={sectionClass}>
+          <h2 className={headingClass}>13. Children&apos;s Privacy</h2>
           <div className="space-y-4 text-muted-foreground leading-relaxed">
-            <p>xrilic.ai is not directed to children under the age of <strong className="text-foreground">13</strong> (or 16 in certain jurisdictions, including the EEA). We do not knowingly collect personal data from children. If we become aware that we have inadvertently collected data from a child without verifiable parental consent, we will take immediate steps to delete that information.</p>
-            <p>If you believe we have collected information from a child, please contact us at <a href="mailto:support@xrilic.ai" className="text-primary hover:underline">support@xrilic.ai</a>.</p>
+            <p>The Services are intended for business use and are not directed to children under <strong className="text-foreground">18</strong>. We do not knowingly collect personal data from children. If you believe a child has provided us data, contact <a href="mailto:support@xrilic.ai" className="text-primary hover:underline">support@xrilic.ai</a> and we will delete it.</p>
           </div>
         </section>
 
-        {/* 11. INTERNATIONAL */}
-        <section id="international" className="bg-card border border-border rounded-xl p-8 mb-6 shadow-sm scroll-mt-24">
-          <h2 className="text-xl font-bold text-foreground mb-5 pb-3 border-b border-border flex items-center gap-3">
-            {/* <span className="w-8 h-8 rounded bg-primary/10 text-primary flex items-center justify-center text-sm shrink-0">🌍</span>  */}
-            11. International Data Transfers
-          </h2>
+        {/* 14. INTERNATIONAL */}
+        <section id="international" className={sectionClass}>
+          <h2 className={headingClass}>14. International Data Transfers</h2>
           <div className="space-y-4 text-muted-foreground leading-relaxed">
-            <p>xrilic.ai operates globally, and your information may be transferred to and processed in countries other than your country of residence. These countries may have data protection laws that differ from your own.</p>
-            <p>When we transfer personal data outside the European Economic Area (EEA), we ensure appropriate safeguards are in place, including:</p>
-            <ul className="list-disc pl-5 space-y-2">
-              <li>Standard Contractual Clauses (SCCs) approved by the European Commission</li>
-              <li>Adequacy decisions where applicable</li>
-              <li>Binding Corporate Rules (BCRs) where relevant</li>
-            </ul>
-            <p>By using our Services, you acknowledge that your data may be transferred internationally in accordance with this policy.</p>
+            <p>We are based in India and our providers may process data in other countries. Where we transfer personal data out of the EEA, UK or other regions that restrict transfers, we rely on safeguards such as Standard Contractual Clauses or adequacy decisions.</p>
           </div>
         </section>
 
-        {/* 12. CHANGES */}
-        <section id="changes" className="bg-card border border-border rounded-xl p-8 mb-6 shadow-sm scroll-mt-24">
-          <h2 className="text-xl font-bold text-foreground mb-5 pb-3 border-b border-border flex items-center gap-3">
-            {/* <span className="w-8 h-8 rounded bg-primary/10 text-primary flex items-center justify-center text-sm shrink-0">🔄</span>  */}
-            12. Changes to This Policy
-          </h2>
+        {/* 15. CHANGES */}
+        <section id="changes" className={sectionClass}>
+          <h2 className={headingClass}>15. Changes to This Policy</h2>
           <div className="space-y-4 text-muted-foreground leading-relaxed">
-            <p>We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or other factors. When we make material changes, we will:</p>
-            <ul className="list-disc pl-5 space-y-2">
-              <li>Update the "Last Updated" date at the top of this page</li>
-              <li>Notify you via email (to the address on your account) at least 14 days before the changes take effect</li>
-              <li>Display a prominent notice within the platform</li>
-            </ul>
-            <p>Your continued use of the Services after the effective date of any changes constitutes your acceptance of the revised policy. We encourage you to review this page periodically.</p>
+            <p>We may update this policy as our practices, technology or legal requirements change. We will update the &ldquo;Last Updated&rdquo; date and, for material changes, notify account holders by email or in-product notice before the change takes effect. We will not use Google, Microsoft or Meta data for a new purpose without first obtaining your consent and, where required, re-verifying with the relevant platform.</p>
           </div>
         </section>
 
-        {/* 13. CONTACT */}
-        <section id="contact" className="bg-card border border-border rounded-xl p-8 mb-6 shadow-sm scroll-mt-24">
-          <h2 className="text-xl font-bold text-foreground mb-5 pb-3 border-b border-border flex items-center gap-3">
-            {/* <span className="w-8 h-8 rounded bg-primary/10 text-primary flex items-center justify-center text-sm shrink-0">✉️</span>  */}
-            13. Contact Us
-          </h2>
+        {/* 16. CONTACT */}
+        <section id="contact" className={sectionClass}>
+          <h2 className={headingClass}>16. Contact Us</h2>
           <div className="space-y-4 text-muted-foreground leading-relaxed overflow-x-auto">
-            <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:</p>
-
+            <p>Questions, concerns or requests about this Privacy Policy or our data practices:</p>
             <table className="w-full text-left border-collapse mt-4">
               <tbody className="text-sm">
                 <tr>
-                  <td className="p-3 border border-border font-bold text-foreground w-1/3 md:w-1/4">Company</td>
-                  <td className="p-3 border border-border">xrilic.ai</td>
+                  <td className={`${td} font-bold text-foreground w-1/3 md:w-1/4`}>Company</td>
+                  <td className={td}>XRILIC TECHNOLOGIES INDIA PRIVATE LIMITED</td>
                 </tr>
                 <tr className="bg-muted/30">
-                  <td className="p-3 border border-border font-bold text-foreground">Privacy inquiries</td>
-                  <td className="p-3 border border-border"><a href="mailto:support@xrilic.ai" className="text-primary hover:underline">support@xrilic.ai</a></td>
+                  <td className={`${td} font-bold text-foreground`}>Privacy inquiries</td>
+                  <td className={td}><a href="mailto:support@xrilic.ai" className="text-primary hover:underline">support@xrilic.ai</a></td>
                 </tr>
                 <tr>
-                  <td className="p-3 border border-border font-bold text-foreground">Security concerns</td>
-                  <td className="p-3 border border-border"><a href="mailto:security@xrilic.ai" className="text-primary hover:underline">security@xrilic.ai</a></td>
+                  <td className={`${td} font-bold text-foreground`}>Security concerns</td>
+                  <td className={td}><a href="mailto:support@xrilic.ai" className="text-primary hover:underline">support@xrilic.ai</a></td>
                 </tr>
                 <tr className="bg-muted/30">
-                  <td className="p-3 border border-border font-bold text-foreground">Website</td>
-                  <td className="p-3 border border-border"><a href="https://xrilic.ai" target="_blank" rel="noreferrer" className="text-primary hover:underline">https://xrilic.ai</a></td>
+                  <td className={`${td} font-bold text-foreground`}>Data deletion</td>
+                  <td className={td}><a href="/data-deletion" className="text-primary hover:underline">https://xrilic.ai/data-deletion</a></td>
+                </tr>
+                <tr>
+                  <td className={`${td} font-bold text-foreground`}>Website</td>
+                  <td className={td}><a href="https://xrilic.ai" target="_blank" rel="noreferrer" className="text-primary hover:underline">https://xrilic.ai</a></td>
                 </tr>
               </tbody>
             </table>
-
-            <div className="bg-primary/5 border-l-4 border-primary rounded-r-lg p-4 my-6 text-foreground">
-              <strong className="text-primary">EEA Users:</strong> If you are located in the European Economic Area and have concerns about our data practices that we have not resolved, you have the right to lodge a complaint with your local data protection authority (DPA).
+            <div className={callout}>
+              <strong className="text-primary">EEA / UK users:</strong> if we have not resolved a concern, you may lodge a complaint with your local data protection authority.
             </div>
           </div>
         </section>
-
-    
       </div>
     </main>
   )

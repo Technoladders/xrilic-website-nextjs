@@ -123,7 +123,7 @@ export function SiteFooter() {
               </li>
               <li>
                 <Link href="/data-deletion" className="hover:text-foreground transition-colors">
-                  Security
+                  Data Deletion
                 </Link>
               </li>
               <li>

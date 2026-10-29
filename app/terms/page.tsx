@@ -26,7 +26,7 @@ export default function TermsAndConditions() {
             <li><a href="#acceptable-use" className="hover:underline">Acceptable Use</a></li>
             <li><a href="#ai-services" className="hover:underline">AI Services &amp; Generated Content</a></li>
             <li><a href="#user-content" className="hover:underline">User Content &amp; Data</a></li>
-            <li><a href="#whatsapp" className="hover:underline">WhatsApp Business Integration</a></li>
+            <li><a href="#whatsapp" className="hover:underline">Email, WhatsApp &amp; Meta Integrations</a></li>
             <li><a href="#third-party" className="hover:underline">Third‑Party Services</a></li>
             <li><a href="#intellectual-property" className="hover:underline">Intellectual Property</a></li>
             <li><a href="#billing" className="hover:underline">Subscription &amp; Billing</a></li>
@@ -108,7 +108,9 @@ export default function TermsAndConditions() {
               However, you are solely responsible for evaluating the accuracy and appropriateness of any AI‑generated content before using it.
             </p>
             <p>
-              We may use aggregated and de‑identified data to improve our AI models. We will not use your identifiable personal content to train AI models without your explicit consent.
+              We do not use data obtained from your connected Google, Microsoft or Meta (WhatsApp) accounts to train, fine‑tune or improve any generalized or foundational AI/ML model, and we only use
+              third‑party AI providers that do not train on data sent through their APIs. See our <a href="/privacy#ai-data" className="text-primary hover:underline">Privacy Policy</a> for details.
+              AI features never send a message on their own; you remain responsible for messages sent from your accounts.
             </p>
           </div>
         </section>
@@ -119,7 +121,7 @@ export default function TermsAndConditions() {
           <div className="space-y-4 text-muted-foreground leading-relaxed">
             <p>
               You retain all rights to the data, files, and content you upload or process through the Services (“<strong className="text-foreground">User Content</strong>”).
-              By submitting User Content, you grant us a limited, worldwide, non‑exclusive, royalty‑free licence to use, reproduce, and process that content solely to provide and improve the Services.
+              By submitting User Content, you grant us a limited, worldwide, non‑exclusive, royalty‑free licence to use, reproduce, and process that content solely to provide the Services to you. Our handling of personal data, including data from your connected Google, Microsoft and Meta accounts, is described in our <a href="/privacy" className="text-primary hover:underline">Privacy Policy</a>.
             </p>
             <p>
               You represent that you have all necessary rights to your User Content and that it does not violate these Terms or any applicable law.
@@ -129,15 +131,31 @@ export default function TermsAndConditions() {
 
         {/* 7. WhatsApp Business Integration */}
         <section id="whatsapp" className="bg-card border border-border rounded-xl p-8 mb-6 shadow-sm scroll-mt-24">
-          <h2 className="text-xl font-bold text-foreground mb-5 pb-3 border-b border-border">7. WhatsApp Business Integration</h2>
+          <h2 className="text-xl font-bold text-foreground mb-5 pb-3 border-b border-border">7. Email, WhatsApp &amp; Meta Integrations</h2>
           <div className="space-y-4 text-muted-foreground leading-relaxed">
+            <h3 id="email-integrations" className="text-lg font-bold text-foreground mt-2 mb-2 scroll-mt-24">7.1 Gmail and Microsoft 365 / Outlook</h3>
             <p>
-              The Services may integrate with the WhatsApp Business Platform. By using any feature that sends or receives messages via WhatsApp, you agree to comply with Meta’s
-              WhatsApp Business Terms of Service, Business Policy, and any applicable guidelines. You are responsible for obtaining all necessary consents from message recipients and for
+              You may connect a Gmail or Microsoft mailbox you are authorised to use so that the Services can send outreach from it and detect replies and bounces. You authorise Xrilic to act only within the
+              permissions you grant on the Google or Microsoft consent screen, and only to provide those features. You can disconnect a mailbox in the product, or revoke access in your Google or Microsoft
+              account, at any time. Xrilic’s use of information received from Google APIs adheres to the{" "}
+              <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noreferrer" className="text-primary hover:underline">Google API Services User Data Policy</a>,
+              including the Limited Use requirements.
+            </p>
+            <p>
+              You are responsible for the content of your emails and for complying with anti‑spam and marketing laws (such as CAN‑SPAM, GDPR/PECR and India’s applicable rules), including having a lawful basis to contact each recipient,
+              honouring unsubscribe requests, and complying with Google’s and Microsoft’s sending limits and policies.
+            </p>
+
+            <h3 className="text-lg font-bold text-foreground mt-6 mb-2">7.2 WhatsApp Business Platform &amp; Facebook Login for Business</h3>
+            <p>
+              Xrilic is a Meta Tech Provider. The Services let you connect your own WhatsApp Business Account through Facebook Login for Business and Embedded Signup, and use it to send and receive WhatsApp messages. By using any
+              WhatsApp feature, you agree to comply with the Meta Platform Terms, the WhatsApp Business Terms of Service, the WhatsApp Business Messaging Policy and Commerce Policy, and any applicable guidelines.
+              You are responsible for obtaining and recording all necessary opt‑in consents from message recipients, for using approved message templates for business‑initiated messages, for honouring opt‑outs, and for
               the content of messages sent through the integration.
             </p>
             <p>
-              Xrilic acts solely as a technology provider enabling the integration and is not responsible for the content of your messages or for any actions Meta may take against your WhatsApp Business account.
+              Xrilic acts solely as a technology provider enabling the integration and is not responsible for the content of your messages or for any actions Meta may take against your WhatsApp Business account,
+              including quality‑rating changes, messaging‑limit changes or suspension. You can disconnect your WhatsApp account in the product or remove Xrilic under Business integrations in your Facebook settings at any time.
             </p>
           </div>
         </section>

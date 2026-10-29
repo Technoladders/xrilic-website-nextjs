@@ -28,7 +28,7 @@ export default function DataDeletionInstructions() {
             <li><a href="#what-gets-deleted" className="hover:underline">What Gets Deleted</a></li>
             <li><a href="#what-may-be-retained" className="hover:underline">What May Be Retained</a></li>
             <li><a href="#org-admin" className="hover:underline">Organization Administrator Requests</a></li>
-            <li><a href="#whatsapp-data" className="hover:underline">WhatsApp Business Data</a></li>
+            <li><a href="#whatsapp-data" className="hover:underline">Google, Microsoft &amp; Meta (WhatsApp) Data</a></li>
             <li><a href="#contact" className="hover:underline">Contact Information</a></li>
           </ol>
         </div>
@@ -55,7 +55,7 @@ export default function DataDeletionInstructions() {
               <li>AI session history and generated outputs linked to your account</li>
               <li>Communication logs with the platform (where not legally required to retain)</li>
               <li>Authentication tokens and access records</li>
-              <li>Data you processed through any integrated services (see WhatsApp section below)</li>
+              <li>Data received from connected Google, Microsoft and Meta (WhatsApp) accounts (see Section 9)</li>
             </ul>
           </div>
         </section>
@@ -105,7 +105,8 @@ export default function DataDeletionInstructions() {
               <li>Your user account and login credentials</li>
               <li>All uploaded files and content</li>
               <li>Records and data associated with your organisation (if an admin‑level deletion)</li>
-              <li>AI interaction history and any model fine‑tuning data linked to you</li>
+              <li>AI interaction history linked to you</li>
+              <li>Stored Gmail, Microsoft and WhatsApp message data and OAuth tokens (see Section 9)</li>
               <li>Personal profile information and preferences</li>
               <li>Authentication tokens and session data</li>
             </ul>
@@ -143,16 +144,22 @@ export default function DataDeletionInstructions() {
 
         {/* 9. WhatsApp Business Data */}
         <section id="whatsapp-data" className="bg-card border border-border rounded-xl p-8 mb-6 shadow-sm scroll-mt-24">
-          <h2 className="text-xl font-bold text-foreground mb-5 pb-3 border-b border-border">9. WhatsApp Business Data</h2>
+          <h2 className="text-xl font-bold text-foreground mb-5 pb-3 border-b border-border">9. Google, Microsoft &amp; Meta (WhatsApp) Data</h2>
           <div className="space-y-4 text-muted-foreground leading-relaxed">
-            <p>
-              If your use of the Services involved integration with the WhatsApp Business Platform, certain conversation data may be stored within your account.
-              Deleting your account will remove those logs from our systems.
-              However, message records may still exist on Meta’s servers in accordance with WhatsApp’s data retention policies, which are outside Xrilic’s control.
-            </p>
-            <p>
-              If you wish to delete WhatsApp‑related data from Meta’s systems, you must follow the deletion instructions provided by WhatsApp directly.
-            </p>
+            <h3 className="text-lg font-bold text-foreground mt-2 mb-2">9.1 Gmail and Microsoft 365 / Outlook</h3>
+            <ul className="list-disc pl-5 space-y-2">
+              <li><strong className="text-foreground">Disconnect in xrilic:</strong> disconnecting a mailbox revokes our access and deletes the stored OAuth tokens immediately.</li>
+              <li><strong className="text-foreground">Revoke at the provider:</strong> Google users can remove xrilic at <a href="https://myaccount.google.com/permissions" target="_blank" rel="noreferrer" className="text-primary hover:underline">myaccount.google.com/permissions</a>; Microsoft users at <a href="https://myapps.microsoft.com" target="_blank" rel="noreferrer" className="text-primary hover:underline">myapps.microsoft.com</a>.</li>
+              <li><strong className="text-foreground">Delete stored mail data:</strong> to delete reply, bounce and sent‑message data we stored from your mailbox, email <a href="mailto:support@xrilic.ai" className="text-primary hover:underline">support@xrilic.ai</a> using the steps in Section 3. We do not modify or delete anything in your Gmail or Outlook mailbox itself.</li>
+            </ul>
+
+            <h3 className="text-lg font-bold text-foreground mt-6 mb-2">9.2 WhatsApp Business &amp; Facebook Login</h3>
+            <ul className="list-disc pl-5 space-y-2">
+              <li><strong className="text-foreground">Disconnect in xrilic:</strong> disconnecting a WhatsApp number unsubscribes our webhooks and deletes the stored access token.</li>
+              <li><strong className="text-foreground">Remove the app from Facebook:</strong> go to Facebook <em>Settings &amp; privacy &rarr; Settings &rarr; Business integrations</em>, select <strong className="text-foreground">Xrilic</strong> and choose <em>Remove</em>. Then email <a href="mailto:support@xrilic.ai" className="text-primary hover:underline">support@xrilic.ai</a> from the account email, with the subject &ldquo;Data deletion request&rdquo;, to have the associated data erased from our systems.</li>
+              <li><strong className="text-foreground">Stored conversations:</strong> deleting your account removes WhatsApp conversation logs, contact opt‑in records and business account identifiers from our systems. Copies held by WhatsApp or Meta follow Meta’s retention policies, which are outside Xrilic’s control; use WhatsApp’s own tools to delete them.</li>
+            </ul>
+            <p>Deletion requests that relate to Meta data are confirmed by email and completed within the timeline in Section 5.</p>
           </div>
         </section>
 

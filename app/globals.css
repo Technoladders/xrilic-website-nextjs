@@ -1,153 +1,156 @@
-@import 'tailwindcss';
-@import 'tw-animate-css';
+@import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
+/* ---------- Design tokens (monochrome with warm grey, as handhold.io) ---------- */
 :root {
-  --background: #fdfdfd;
+  --background: #ffffff;
   --foreground: #000000;
-  --card: #fdfdfd;
-  --card-foreground: #000000;
-  --popover: #fcfcfc;
-  --popover-foreground: #000000;
-  --primary: #7033ff;
+  --surface-elevated: #f1f0ed; /* cards, secondary buttons */
+  --surface-hover: #f6f5f3;
+  --surface-active: #dddad4;
+  --border: #f1f0ed;
+  --border-strong: #dddad4;
+  --primary: #000000;
+  --primary-hover: #2b2926;
   --primary-foreground: #ffffff;
-  --secondary: #edf0f4;
-  --secondary-foreground: #080808;
-  --muted: #f5f5f5;
-  --muted-foreground: #525252;
-  --accent: #e2ebff;
-  --accent-foreground: #1e69dc;
-  --destructive: #e54b4f;
-  --destructive-foreground: #ffffff;
-  --border: #e7e7ee;
-  --input: #ebebeb;
-  --ring: #000000;
-  --chart-1: #4ac885;
-  --chart-2: #7033ff;
-  --chart-3: #fd822b;
-  --chart-4: #3276e4;
-  --chart-5: #747474;
-  --radius: 1.4rem;
-  --sidebar: #f5f8fb;
-  --sidebar-foreground: #000000;
-  --sidebar-primary: #000000;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #ebebeb;
-  --sidebar-accent-foreground: #000000;
-  --sidebar-border: #ebebeb;
-  --sidebar-ring: #000000;
-  --shadow-x: 0px;
-  --shadow-y: 2px;
-  --shadow-blur: 3px;
-  --shadow-spread: 0px;
-  --shadow-opacity: 0.2;
-  --shadow-color: #000000;
-}
+  --content-secondary: rgb(0 0 0 / 0.55);
+  --content-tertiary: rgb(0 0 0 / 0.4);
 
-:root[class~="dark"] {
-  --background: #1a1b1e;
-  --foreground: #f0f0f0;
-  --card: #222327;
-  --card-foreground: #f0f0f0;
-  --popover: #222327;
-  --popover-foreground: #f0f0f0;
-  --primary: #8c5cff;
-  --primary-foreground: #ffffff;
-  --secondary: #2a2c33;
-  --secondary-foreground: #f0f0f0;
-  --muted: #2a2c33;
-  --muted-foreground: #a0a0a0;
-  --accent: #1e293b;
-  --accent-foreground: #79c0ff;
-  --destructive: #f87171;
-  --destructive-foreground: #ffffff;
-  --border: #33353a;
-  --input: #33353a;
-  --ring: #8c5cff;
-  --chart-1: #4ade80;
-  --chart-2: #8c5cff;
-  --chart-3: #fca5a5;
-  --chart-4: #5993f4;
-  --chart-5: #a0a0a0;
-  --sidebar: #161618;
-  --sidebar-foreground: #f0f0f0;
-  --sidebar-primary: #8c5cff;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #2a2c33;
-  --sidebar-accent-foreground: #8c5cff;
-  --sidebar-border: #33353a;
-  --sidebar-ring: #8c5cff;
-  --shadow-x: 0px;
-  --shadow-y: 2px;
-  --shadow-blur: 3px;
-  --shadow-spread: 0px;
-  --shadow-opacity: 0.2;
-  --shadow-color: #000000;
+  /* Names the pricing components still use, mapped onto the same palette */
+  --card: #ffffff;
+  --muted: #f1f0ed;
+  --muted-foreground: rgb(0 0 0 / 0.55);
+  --accent: #f1f0ed;
+  --secondary: #f1f0ed;
+  --secondary-foreground: #000000;
+  --ring: #000000;
+  --illustration: #f6f5f3;
+  --border-illustration: #dddad4;
+  --brand: #000000;
+  --brand-soft: #f1f0ed;
 }
 
 @theme inline {
-  --font-sans: 'Plus Jakarta Sans', 'Plus Jakarta Sans Fallback';
-  --font-mono: 'IBM Plex Mono', 'IBM Plex Mono Fallback';
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
+  --color-elevated: var(--surface-elevated);
+  --color-hover: var(--surface-hover);
+  --color-active: var(--surface-active);
+  --color-border: var(--border);
+  --color-strong: var(--border-strong);
   --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
   --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary-text: var(--content-secondary);
+  --color-tertiary-text: var(--content-tertiary);
+  --color-card: var(--card);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --font-serif: 'Lora', 'Lora Fallback';
-  /* computed shadow variables below - do not modify */
-  --shadow-2xs: var(--shadow-x) var(--shadow-y) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 100%), transparent);
-  --shadow-xs: var(--shadow-x) var(--shadow-y) var(--shadow-blur) var(--shadow-spread) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 100%), transparent);
-  --shadow-sm: var(--shadow-x) var(--shadow-y) calc(var(--shadow-blur) * 1.5) var(--shadow-spread) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 100%), transparent);
-  --shadow-md: calc(var(--shadow-x) * 2) calc(var(--shadow-y) * 2) calc(var(--shadow-blur) * 3) calc(var(--shadow-spread) - 1px) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 100%), transparent);
-  --shadow-lg: calc(var(--shadow-x) * 4) calc(var(--shadow-y) * 4) calc(var(--shadow-blur) * 5) calc(var(--shadow-spread) - 3px) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 100%), transparent);
-  --shadow-xl: calc(var(--shadow-x) * 6) calc(var(--shadow-y) * 6) calc(var(--shadow-blur) * 7) calc(var(--shadow-spread) - 5px) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 100%), transparent);
-  --shadow-2xl: calc(var(--shadow-x) * 8) calc(var(--shadow-y) * 8) calc(max(0px, var(--shadow-blur) * 9 - 8px)) calc(var(--shadow-spread) - 12px) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 250%), transparent);
-  --shadow: var(--shadow-md);
-  --color-shadow-color: var(--shadow-color);
-  --shadow-opacity: var(--shadow-opacity);
-  --shadow-spread: var(--shadow-spread);
-  --shadow-blur: var(--shadow-blur);
-  --shadow-y: var(--shadow-y);
-  --shadow-x: var(--shadow-x);
+  --color-input: var(--border);
+  --color-destructive: #dc2626;
+  --color-illustration: var(--illustration);
+  --color-border-illustration: var(--border-illustration);
+  --color-brand: var(--brand);
+  --color-brand-soft: var(--brand-soft);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  /* Display serif. The reference uses a licensed light serif (Bureau Serif); Newsreader Light is the closest free font. */
+  --font-serif: var(--font-newsreader), Georgia, serif;
+  --font-display: var(--font-newsreader), Georgia, serif;
+
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+
+  --animate-fade-in-up: fade-in-up 0.6s ease both;
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-fade-swap: fade-swap 0.45s ease both;
+  --animate-header-enter: header-enter 0.4s cubic-bezier(0.23, 1, 0.32, 1) backwards;
+  --animate-hero-wave-enter: hero-wave-enter 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0.15s backwards;
+  --animate-marketing-fade-in: marketing-fade-in 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0.35s backwards;
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-wave: wave 1.1s ease-in-out infinite;
+  --animate-caret: caret-blink 1s steps(1) infinite;
+
+  @keyframes header-enter {
+    from { opacity: 0; translate: 0 -8px; }
+    to { opacity: 1; translate: 0; }
+  }
+  @keyframes hero-wave-enter {
+    from { opacity: 0; scale: 1.02; }
+    to { opacity: 1; scale: 1; }
+  }
+  @keyframes marketing-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes caret-blink {
+    50% { opacity: 0; }
+  }
+  @keyframes wave {
+    0%, 100% { transform: scaleY(0.4); }
+    50% { transform: scaleY(1); }
+  }
+  @keyframes marquee {
+    to { transform: translateX(-50%); }
+  }
+
+  @keyframes float {
+    50% { transform: translateY(-8px); }
+  }
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fade-swap {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    border-color: var(--border);
+  }
+  html {
+    scroll-behavior: smooth;
   }
   body {
-    @apply bg-background text-foreground;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  /* Display headings: light serif, tight. Utility classes (size, tracking, weight) can still override. */
+  h1,
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+  }
+}
+
+
+/* Scroll reveal: only hidden once JS has added the "js" class to <html> (see components/ScrollReveal.tsx). */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.js [data-reveal][data-revealed] {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
   }
 }

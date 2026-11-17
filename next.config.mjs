@@ -1,13 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "standalone",
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  images: {
-    unoptimized: true,
-  },
- 
-}
-
-export default nextConfig
+  output: "standalone", // Docker image (see Dockerfile); runs as a Node server
+  images: { unoptimized: true },
+};
+export default nextConfig;
